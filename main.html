@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script>
+        $(function(){
+            $("#includedContent").load("content.html");
+        });
+    </script>
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+		  <div class="container">
+		      <div class="row">
+		          <div class="col-sm-6">
+		              <p>Build and Test Conflicts in The Wild</p>
+		          </div>
+		      </div>
+		  </div>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class="container">
+			<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+		    	<ul class="nav navbar-nav main-navbar-nav">
+		        	<li class="active"><a href="main.html" title="">HOME</a></li>
+		        	<li class="dropdown">
+		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+		            	<ul class="dropdown-menu">
+		                	<li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+		                	<li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+		            	</ul>
+		        	</li>
+		        	<li><a href="sample.html" title="">Sample</a></li>
+		    	</ul>                           
+			</div>        
+			</div>
+		</nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h2>Build and Test Conflicts in The Wild</h2>
+                  <div class="abstract">
+                    <h4>Abstract:</h4>
+                    <p> <b>Context:</b> When collaborating, developers create and change software artifacts often without full awareness of changes being made by other team members. While such independence is essential for non small teams, and might increase development productivity, it might also result in conflicts when integrating developers changes. <b>Goal:</b> To better understand part of these conflicts__ the ones revealed by failures when building and testing integrated code__ in this paper we investigate their frequency, structure, and adopted resolution patterns. <b>Methodology:</b> We analyze merge scenarios (merge commits and the associated integrated changes) from more than 500 Java projects that use Travis CI for continuous integration. To identify build and test conflicts, we select merge scenarios from git repositories, parse the Travis logs generated when building and testing the commits in a scenario, and check whether the logged error messages are related to the integrated changes. <b>Results:</b> We find and classify more than 130 build and test conflicts, and their resolution patterns.  We also find and analyze build and test failures caused by immediate post integration changes, which are often performed with the aim of fixing merge conflicts. Most build conflicts are caused by missing declarations removed or renamed by one developer but referenced by the changes of another developer. These conflicts are often resolved by removing the dangling reference. Conflicting changes break not only existing tests, but also new and modified tests. To resolve build conflicts developers often fix the integrated code, instead of completely discarding changes and conservatively restoring project state to a previous commit. <b>Conclusion:</b> Based on the catalog of build conflict causes derived from our study, awareness tools could alert developers about the risk of a number of conflict situations they currently do not support. Program repair tools could benefit from the derived catalogue of build conflict resolution patterns, and the study infrastructure, to automatically fix conflicts. The scripts we developed for identifying the classes changed in a merge scenario, and involved in a test case failure, could be used to help developers to understand the failure and fix test conflicts.
+                  </div>
+
+                  <div class="study">
+                    <h4>Replication Study</h4>
+                    <p>During this work, we design a study involving three main steps as illustrated bellow. The first step is responsible for getting all information required for the study, which includes mining repositories (source code and builds information). The second step performs many verifications aiming to filter our data leaving only true conflicts. Finally, the last step identifies the causes of build and test conflicts and the resolution patterns adopted (identifying for each conflict the closest commit responsible for the fix). </p>
+                  </div>
+                  <div class="container">
+                  	<figure>
+                    	<img src="img/study-setup.png" alt="Study Design" width="400" height="300" title="Study Design">
+                    	<figcaption>Figure 1 - Study Design.</figcaption>
+                    </figure>
+                  </div>
+                  <div class="study">
+                    <h4>Data, Scripts and Tools</h4>
+                    <ul>
+                      <li><a href="https://github.com/build-test-conflicts/TravisAnalysis" title="" target="_blank" >Minning Scripts</a></li>
+                      <li><a href="sample.html" title="">Sample Dataset</a></li>
+                    </ul>
+                  </div>
+                  <div class="study">
+                    <h4>Evaluation Results</h4>
+                    <ul>
+                      <li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+                      <li><a href="test-conflicts.html" title="">Test Connflicts</a></li>
+                    </ul>
+                  </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="cen">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+      </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>

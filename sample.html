@@ -1,0 +1,3799 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <p>Build and Test Conflicts in The Wild</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-navbar-nav">
+                <li class="active"><a href="main.html" title="">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+                        <li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+                    </ul>
+                </li>
+                <li><a href="sample.html" title="">Sample</a></li>
+            </ul>                           
+        </div>        
+      </div>
+    </nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Build Conflicts</li>
+                  </ol>                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h3>Sample</h3>
+                    <table class="build_conflicts">
+                      <thead>
+                        <tr>
+                          <th> Project Name </th>
+                          <th> Merge Scenarios (MS) </th>
+                          <th> MS Not Built </th>
+                          <th> Errored MS </th>
+                          <th> Failed MS </th>
+                        </tr>
+                      </thded>
+                      <tbody>
+                        <tr>
+                          <td> <a href="http://github.com/GoClipse/goclipse" target="_blank"> GoClipse/goclipse </th>
+                          <td> 426 </td>
+                          <td> 356 </td>
+                          <td> 8 </td>
+                          <td> 49 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/taweili/ardublock" target="_blank"> taweili/ardublock </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/twitter/cloudhopper-smpp" target="_blank"> twitter/cloudhopper-smpp </th>
+                          <td> 23 </td>
+                          <td> 3 </td>
+                          <td> 7 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/RichardWarburton/lambda-behave" target="_blank"> RichardWarburton/lambda-behave </th>
+                          <td> 17 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/isaiah/jubilee" target="_blank"> isaiah/jubilee </th>
+                          <td> 12 </td>
+                          <td> 2 </td>
+                          <td> 4 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/roundrop/facebook4j" target="_blank"> roundrop/facebook4j </th>
+                          <td> 63 </td>
+                          <td> 31 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/brooklyncentral/clocker" target="_blank"> brooklyncentral/clocker </th>
+                          <td> 216 </td>
+                          <td> 29 </td>
+                          <td> 29 </td>
+                          <td> 22 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/reficio/soap-ws" target="_blank"> reficio/soap-ws </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pulse00/Twig-Eclipse-Plugin" target="_blank"> pulse00/Twig-Eclipse-Plugin </th>
+                          <td> 8 </td>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/hcoles/pitest" target="_blank"> hcoles/pitest </th>
+                          <td> 96 </td>
+                          <td> 23 </td>
+                          <td> 5 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rhuss/docker-maven-plugin" target="_blank"> rhuss/docker-maven-plugin </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kite-sdk/kite" target="_blank"> kite-sdk/kite </th>
+                          <td> 80 </td>
+                          <td> 3 </td>
+                          <td> 42 </td>
+                          <td> 17 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/javaee-samples/javaee7-samples" target="_blank"> javaee-samples/javaee7-samples </th>
+                          <td> 106 </td>
+                          <td> 2 </td>
+                          <td> 40 </td>
+                          <td> 132 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mpetazzoni/ttorrent" target="_blank"> mpetazzoni/ttorrent </th>
+                          <td> 20 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/analytically/innerbuilder" target="_blank"> analytically/innerbuilder </th>
+                          <td> 9 </td>
+                          <td> 4 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/linkedin/pinot" target="_blank"> linkedin/pinot </th>
+                          <td> 20 </td>
+                          <td> 11 </td>
+                          <td> 9 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Athou/commafeed" target="_blank"> Athou/commafeed </th>
+                          <td> 56 </td>
+                          <td> 1 </td>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cryptomator/cryptomator" target="_blank"> cryptomator/cryptomator </th>
+                          <td> 120 </td>
+                          <td> 39 </td>
+                          <td> 6 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spring-projects/spring-petclinic" target="_blank"> spring-projects/spring-petclinic </th>
+                          <td> 25 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sqshq/PiggyMetrics" target="_blank"> sqshq/PiggyMetrics </th>
+                          <td> 10 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/hive" target="_blank"> apache/hive </th>
+                          <td> 65 </td>
+                          <td> 34 </td>
+                          <td> 0 </td>
+                          <td> 29 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/VerbalExpressions/JavaVerbalExpressions" target="_blank"> VerbalExpressions/JavaVerbalExpressions </th>
+                          <td> 27 </td>
+                          <td> 13 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/alibaba/java-dns-cache-manipulator" target="_blank"> alibaba/java-dns-cache-manipulator </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/CloudSlang/score" target="_blank"> CloudSlang/score </th>
+                          <td> 154 </td>
+                          <td> 2 </td>
+                          <td> 3 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/CloudSlang/cloud-slang" target="_blank"> CloudSlang/cloud-slang </th>
+                          <td> 818 </td>
+                          <td> 247 </td>
+                          <td> 51 </td>
+                          <td> 60 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/nativelibs4java/BridJ" target="_blank"> nativelibs4java/BridJ </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/effektif/effektif" target="_blank"> effektif/effektif </th>
+                          <td> 91 </td>
+                          <td> 30 </td>
+                          <td> 5 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mrwilson/java-dirty" target="_blank"> mrwilson/java-dirty </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/locationtech/udig-platform" target="_blank"> locationtech/udig-platform </th>
+                          <td> 34 </td>
+                          <td> 1 </td>
+                          <td> 25 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/incubator-samoa" target="_blank"> apache/incubator-samoa </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pac4j/spring-security-pac4j" target="_blank"> pac4j/spring-security-pac4j </th>
+                          <td> 34 </td>
+                          <td> 7 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/CorfuDB/CorfuDB" target="_blank"> CorfuDB/CorfuDB </th>
+                          <td> 594 </td>
+                          <td> 87 </td>
+                          <td> 48 </td>
+                          <td> 30 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/martinpaljak/GlobalPlatformPro" target="_blank"> martinpaljak/GlobalPlatformPro </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jparsec/jparsec" target="_blank"> jparsec/jparsec </th>
+                          <td> 36 </td>
+                          <td> 6 </td>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spring-cloud/spring-cloud-consul" target="_blank"> spring-cloud/spring-cloud-consul </th>
+                          <td> 69 </td>
+                          <td> 18 </td>
+                          <td> 13 </td>
+                          <td> 13 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tbroyer/bullet" target="_blank"> tbroyer/bullet </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/lookfirst/sardine" target="_blank"> lookfirst/sardine </th>
+                          <td> 49 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 22 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/penberg/fjord" target="_blank"> penberg/fjord </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Esri/spatial-framework-for-hadoop" target="_blank"> Esri/spatial-framework-for-hadoop </th>
+                          <td> 32 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Esri/geometry-api-java" target="_blank"> Esri/geometry-api-java </th>
+                          <td> 35 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/eXist-db/exist" target="_blank"> eXist-db/exist </th>
+                          <td> 1011 </td>
+                          <td> 104 </td>
+                          <td> 215 </td>
+                          <td> 155 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kongchen/swagger-maven-plugin" target="_blank"> kongchen/swagger-maven-plugin </th>
+                          <td> 163 </td>
+                          <td> 27 </td>
+                          <td> 40 </td>
+                          <td> 32 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jamesdbloom/mockserver" target="_blank"> jamesdbloom/mockserver </th>
+                          <td> 64 </td>
+                          <td> 48 </td>
+                          <td> 3 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/trecloux/yeoman-maven-plugin" target="_blank"> trecloux/yeoman-maven-plugin </th>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jsonld-java/jsonld-java" target="_blank"> jsonld-java/jsonld-java </th>
+                          <td> 68 </td>
+                          <td> 7 </td>
+                          <td> 18 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spotify/netty-zmtp" target="_blank"> spotify/netty-zmtp </th>
+                          <td> 13 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/maxmind/GeoIP2-java" target="_blank"> maxmind/GeoIP2-java </th>
+                          <td> 36 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bitsofproof/supernode" target="_blank"> bitsofproof/supernode </th>
+                          <td> 28 </td>
+                          <td> 10 </td>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/f2prateek/progressbutton" target="_blank"> f2prateek/progressbutton </th>
+                          <td> 11 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/gresrun/jesque" target="_blank"> gresrun/jesque </th>
+                          <td> 24 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/damnhandy/Handy-URI-Templates" target="_blank"> damnhandy/Handy-URI-Templates </th>
+                          <td> 28 </td>
+                          <td> 3 </td>
+                          <td> 4 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/accumulo" target="_blank"> apache/accumulo </th>
+                          <td> 477 </td>
+                          <td> 157 </td>
+                          <td> 77 </td>
+                          <td> 49 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/airlift/airlift" target="_blank"> airlift/airlift </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/adamfisk/LittleProxy" target="_blank"> adamfisk/LittleProxy </th>
+                          <td> 139 </td>
+                          <td> 11 </td>
+                          <td> 16 </td>
+                          <td> 22 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caelum/caelum-stella" target="_blank"> caelum/caelum-stella </th>
+                          <td> 41 </td>
+                          <td> 2 </td>
+                          <td> 19 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/aalto-xml" target="_blank"> FasterXML/aalto-xml </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mfornos/humanize" target="_blank"> mfornos/humanize </th>
+                          <td> 8 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cosmin/IClojure" target="_blank"> cosmin/IClojure </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhalterman/typetools" target="_blank"> jhalterman/typetools </th>
+                          <td> 12 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/szegedi/dynalink" target="_blank"> szegedi/dynalink </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jooby-project/jooby" target="_blank"> jooby-project/jooby </th>
+                          <td> 129 </td>
+                          <td> 16 </td>
+                          <td> 38 </td>
+                          <td> 48 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/hansenji/pocketknife" target="_blank"> hansenji/pocketknife </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/immutables/immutables" target="_blank"> immutables/immutables </th>
+                          <td> 133 </td>
+                          <td> 13 </td>
+                          <td> 0 </td>
+                          <td> 31 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/HubSpot/jinjava" target="_blank"> HubSpot/jinjava </th>
+                          <td> 135 </td>
+                          <td> 53 </td>
+                          <td> 13 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/graphaware/neo4j-reco" target="_blank"> graphaware/neo4j-reco </th>
+                          <td> 14 </td>
+                          <td> 2 </td>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/SpoutDev/Vanilla" target="_blank"> SpoutDev/Vanilla </th>
+                          <td> 21 </td>
+                          <td> 3 </td>
+                          <td> 11 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/goodow/realtime-store" target="_blank"> goodow/realtime-store </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cloudfoundry/java-buildpack-auto-reconfiguration" target="_blank"> cloudfoundry/java-buildpack-auto-reconfiguration </th>
+                          <td> 50 </td>
+                          <td> 11 </td>
+                          <td> 2 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kzwang/elasticsearch-image" target="_blank"> kzwang/elasticsearch-image </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jOOQ/jOOL" target="_blank"> jOOQ/jOOL </th>
+                          <td> 53 </td>
+                          <td> 26 </td>
+                          <td> 32 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/4pr0n/ripme" target="_blank"> 4pr0n/ripme </th>
+                          <td> 42 </td>
+                          <td> 23 </td>
+                          <td> 11 </td>
+                          <td> 56 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/resty-gwt/resty-gwt" target="_blank"> resty-gwt/resty-gwt </th>
+                          <td> 93 </td>
+                          <td> 6 </td>
+                          <td> 9 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/yusuke/twitter4j" target="_blank"> yusuke/twitter4j </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/searls/jasmine-maven-plugin" target="_blank"> searls/jasmine-maven-plugin </th>
+                          <td> 51 </td>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/brianfrankcooper/YCSB" target="_blank"> brianfrankcooper/YCSB </th>
+                          <td> 279 </td>
+                          <td> 11 </td>
+                          <td> 11 </td>
+                          <td> 20 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rnewson/couchdb-lucene" target="_blank"> rnewson/couchdb-lucene </th>
+                          <td> 17 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhy/jsoup" target="_blank"> jhy/jsoup </th>
+                          <td> 59 </td>
+                          <td> 27 </td>
+                          <td> 3 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sculptor/sculptor" target="_blank"> sculptor/sculptor </th>
+                          <td> 37 </td>
+                          <td> 4 </td>
+                          <td> 12 </td>
+                          <td> 20 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OpenSmpp/opensmpp" target="_blank"> OpenSmpp/opensmpp </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mybatis/guice" target="_blank"> mybatis/guice </th>
+                          <td> 75 </td>
+                          <td> 10 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/javanna/elasticshell" target="_blank"> javanna/elasticshell </th>
+                          <td> 12 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/owlike/genson" target="_blank"> owlike/genson </th>
+                          <td> 16 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jqno/equalsverifier" target="_blank"> jqno/equalsverifier </th>
+                          <td> 253 </td>
+                          <td> 196 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/etsy/statsd-jvm-profiler" target="_blank"> etsy/statsd-jvm-profiler </th>
+                          <td> 16 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/javapoet" target="_blank"> square/javapoet </th>
+                          <td> 251 </td>
+                          <td> 5 </td>
+                          <td> 11 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/liaohuqiu/SimpleHashSet" target="_blank"> liaohuqiu/SimpleHashSet </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/google-oauth-java-client" target="_blank"> google/google-oauth-java-client </th>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/google-http-java-client" target="_blank"> google/google-http-java-client </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/javaparser/javaparser" target="_blank"> javaparser/javaparser </th>
+                          <td> 789 </td>
+                          <td> 337 </td>
+                          <td> 7 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/naver/pinpoint" target="_blank"> naver/pinpoint </th>
+                          <td> 1453 </td>
+                          <td> 16 </td>
+                          <td> 360 </td>
+                          <td> 120 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/digitalfondue/lavagna" target="_blank"> digitalfondue/lavagna </th>
+                          <td> 87 </td>
+                          <td> 9 </td>
+                          <td> 14 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/druid-io/druid" target="_blank"> druid-io/druid </th>
+                          <td> 1128 </td>
+                          <td> 4 </td>
+                          <td> 59 </td>
+                          <td> 394 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/GoogleCloudPlatform/DataflowJavaSDK" target="_blank"> GoogleCloudPlatform/DataflowJavaSDK </th>
+                          <td> 264 </td>
+                          <td> 4 </td>
+                          <td> 20 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/relayrides/pushy" target="_blank"> relayrides/pushy </th>
+                          <td> 201 </td>
+                          <td> 39 </td>
+                          <td> 18 </td>
+                          <td> 15 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/aerogear/aerogear-unifiedpush-server" target="_blank"> aerogear/aerogear-unifiedpush-server </th>
+                          <td> 524 </td>
+                          <td> 9 </td>
+                          <td> 106 </td>
+                          <td> 20 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/languagetool-org/languagetool" target="_blank"> languagetool-org/languagetool </th>
+                          <td> 232 </td>
+                          <td> 130 </td>
+                          <td> 2 </td>
+                          <td> 17 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/yegor256/xembly" target="_blank"> yegor256/xembly </th>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/auto" target="_blank"> google/auto </th>
+                          <td> 182 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                          <td> 35 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mesos/hadoop" target="_blank"> mesos/hadoop </th>
+                          <td> 21 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/owlcs/owlapi" target="_blank"> owlcs/owlapi </th>
+                          <td> 70 </td>
+                          <td> 12 </td>
+                          <td> 8 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/guokr/simbase" target="_blank"> guokr/simbase </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/palantir/eclipse-typescript" target="_blank"> palantir/eclipse-typescript </th>
+                          <td> 32 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/nurkiewicz/async-retry" target="_blank"> nurkiewicz/async-retry </th>
+                          <td> 3 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/easymock/objenesis" target="_blank"> easymock/objenesis </th>
+                          <td> 7 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/graphaware/neo4j-framework" target="_blank"> graphaware/neo4j-framework </th>
+                          <td> 97 </td>
+                          <td> 24 </td>
+                          <td> 33 </td>
+                          <td> 36 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jeevatkm/digitalocean-api-java" target="_blank"> jeevatkm/digitalocean-api-java </th>
+                          <td> 16 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/eveliotc/carbonite" target="_blank"> eveliotc/carbonite </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sksamuel/elasticsearch-river-neo4j" target="_blank"> sksamuel/elasticsearch-river-neo4j </th>
+                          <td> 12 </td>
+                          <td> 5 </td>
+                          <td> 4 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ppat/storm-rabbitmq" target="_blank"> ppat/storm-rabbitmq </th>
+                          <td> 20 </td>
+                          <td> 10 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/julman99/gson-fire" target="_blank"> julman99/gson-fire </th>
+                          <td> 9 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/StripesFramework/stripes" target="_blank"> StripesFramework/stripes </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bujiio/buji-pac4j" target="_blank"> bujiio/buji-pac4j </th>
+                          <td> 27 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/usc/wechat-mp-sdk" target="_blank"> usc/wechat-mp-sdk </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/nurkiewicz/LazySeq" target="_blank"> nurkiewicz/LazySeq </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OpenSextant/SolrTextTagger" target="_blank"> OpenSextant/SolrTextTagger </th>
+                          <td> 15 </td>
+                          <td> 2 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sps/mustache-spring-view" target="_blank"> sps/mustache-spring-view </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/hdiv/hdiv" target="_blank"> hdiv/hdiv </th>
+                          <td> 74 </td>
+                          <td> 15 </td>
+                          <td> 13 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/UISpec4J/UISpec4J" target="_blank"> UISpec4J/UISpec4J </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhalterman/concurrentunit" target="_blank"> jhalterman/concurrentunit </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/stefanbirkner/system-rules" target="_blank"> stefanbirkner/system-rules </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/xebia/Xebium" target="_blank"> xebia/Xebium </th>
+                          <td> 31 </td>
+                          <td> 6 </td>
+                          <td> 3 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/buddycloud/buddycloud-server-java" target="_blank"> buddycloud/buddycloud-server-java </th>
+                          <td> 192 </td>
+                          <td> 52 </td>
+                          <td> 9 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/togglz/togglz" target="_blank"> togglz/togglz </th>
+                          <td> 56 </td>
+                          <td> 1 </td>
+                          <td> 12 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/JakeWharton/salvage" target="_blank"> JakeWharton/salvage </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/logstash/log4j-jsonevent-layout" target="_blank"> logstash/log4j-jsonevent-layout </th>
+                          <td> 11 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mybatis/jpetstore-6" target="_blank"> mybatis/jpetstore-6 </th>
+                          <td> 63 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mybatis/generator" target="_blank"> mybatis/generator </th>
+                          <td> 131 </td>
+                          <td> 6 </td>
+                          <td> 5 </td>
+                          <td> 18 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ralfstx/minimal-json" target="_blank"> ralfstx/minimal-json </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/brianm/really-executable-jars-maven-plugin" target="_blank"> brianm/really-executable-jars-maven-plugin </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jOOQ/jOOU" target="_blank"> jOOQ/jOOU </th>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-dataformat-yaml" target="_blank"> FasterXML/jackson-dataformat-yaml </th>
+                          <td> 30 </td>
+                          <td> 13 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bkiers/Liqp" target="_blank"> bkiers/Liqp </th>
+                          <td> 41 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ning/maven-duplicate-finder-plugin" target="_blank"> ning/maven-duplicate-finder-plugin </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/threerings/tripleplay" target="_blank"> threerings/tripleplay </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/livingsocial/HiveSwarm" target="_blank"> livingsocial/HiveSwarm </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/zeroturnaround/zt-zip" target="_blank"> zeroturnaround/zt-zip </th>
+                          <td> 26 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/CloudifySource/cloudify" target="_blank"> CloudifySource/cloudify </th>
+                          <td> 225 </td>
+                          <td> 27 </td>
+                          <td> 85 </td>
+                          <td> 86 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/threerings/playn" target="_blank"> threerings/playn </th>
+                          <td> 13 </td>
+                          <td> 0 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/basho/riak-java-client" target="_blank"> basho/riak-java-client </th>
+                          <td> 386 </td>
+                          <td> 213 </td>
+                          <td> 86 </td>
+                          <td> 57 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/goldmansachs/gs-collections" target="_blank"> goldmansachs/gs-collections </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kevinsawicki/wishlist" target="_blank"> kevinsawicki/wishlist </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-databind" target="_blank"> FasterXML/jackson-databind </th>
+                          <td> 670 </td>
+                          <td> 251 </td>
+                          <td> 212 </td>
+                          <td> 65 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-core" target="_blank"> FasterXML/jackson-core </th>
+                          <td> 153 </td>
+                          <td> 63 </td>
+                          <td> 19 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/DSpace/DSpace" target="_blank"> DSpace/DSpace </th>
+                          <td> 1226 </td>
+                          <td> 80 </td>
+                          <td> 47 </td>
+                          <td> 134 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/adyliu/jafka" target="_blank"> adyliu/jafka </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ocpsoft/rewrite" target="_blank"> ocpsoft/rewrite </th>
+                          <td> 28 </td>
+                          <td> 0 </td>
+                          <td> 8 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/asual/lesscss-engine" target="_blank"> asual/lesscss-engine </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tinkerpop/blueprints" target="_blank"> tinkerpop/blueprints </th>
+                          <td> 142 </td>
+                          <td> 28 </td>
+                          <td> 66 </td>
+                          <td> 44 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/searchbox-io/Jest" target="_blank"> searchbox-io/Jest </th>
+                          <td> 186 </td>
+                          <td> 17 </td>
+                          <td> 26 </td>
+                          <td> 88 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tananaev/traccar" target="_blank"> tananaev/traccar </th>
+                          <td> 402 </td>
+                          <td> 204 </td>
+                          <td> 15 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/nodebox/nodebox" target="_blank"> nodebox/nodebox </th>
+                          <td> 76 </td>
+                          <td> 23 </td>
+                          <td> 14 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tinkerpop/gremlin" target="_blank"> tinkerpop/gremlin </th>
+                          <td> 14 </td>
+                          <td> 2 </td>
+                          <td> 11 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/airlift/airline" target="_blank"> airlift/airline </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mikera/clisk" target="_blank"> mikera/clisk </th>
+                          <td> 9 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/killme2008/Metamorphosis" target="_blank"> killme2008/Metamorphosis </th>
+                          <td> 13 </td>
+                          <td> 8 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tinkerpop/rexster" target="_blank"> tinkerpop/rexster </th>
+                          <td> 65 </td>
+                          <td> 12 </td>
+                          <td> 39 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/twilio/twilio-java" target="_blank"> twilio/twilio-java </th>
+                          <td> 238 </td>
+                          <td> 82 </td>
+                          <td> 19 </td>
+                          <td> 13 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Multiverse/Multiverse-Core" target="_blank"> Multiverse/Multiverse-Core </th>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/resthub/resthub-spring-stack" target="_blank"> resthub/resthub-spring-stack </th>
+                          <td> 128 </td>
+                          <td> 19 </td>
+                          <td> 20 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/essentials/Essentials" target="_blank"> essentials/Essentials </th>
+                          <td> 133 </td>
+                          <td> 38 </td>
+                          <td> 1 </td>
+                          <td> 73 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spullara/mustache.java" target="_blank"> spullara/mustache.java </th>
+                          <td> 58 </td>
+                          <td> 12 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/springside/springside4" target="_blank"> springside/springside4 </th>
+                          <td> 32 </td>
+                          <td> 0 </td>
+                          <td> 8 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dynjs/dynjs" target="_blank"> dynjs/dynjs </th>
+                          <td> 53 </td>
+                          <td> 2 </td>
+                          <td> 22 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/SpoutDev/Spout" target="_blank"> SpoutDev/Spout </th>
+                          <td> 64 </td>
+                          <td> 29 </td>
+                          <td> 17 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/salyh/elasticsearch-security-plugin" target="_blank"> salyh/elasticsearch-security-plugin </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/addthis/stream-lib" target="_blank"> addthis/stream-lib </th>
+                          <td> 42 </td>
+                          <td> 2 </td>
+                          <td> 4 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/drrb/java-rust-example" target="_blank"> drrb/java-rust-example </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Spoutcraft/Spoutcraft" target="_blank"> Spoutcraft/Spoutcraft </th>
+                          <td> 14 </td>
+                          <td> 1 </td>
+                          <td> 16 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/reficio/p2-maven-plugin" target="_blank"> reficio/p2-maven-plugin </th>
+                          <td> 22 </td>
+                          <td> 10 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/structr/structr" target="_blank"> structr/structr </th>
+                          <td> 1125 </td>
+                          <td> 776 </td>
+                          <td> 71 </td>
+                          <td> 303 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/hstaudacher/osgi-jax-rs-connector" target="_blank"> hstaudacher/osgi-jax-rs-connector </th>
+                          <td> 23 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/gwt-maven-plugin/gwt-maven-plugin" target="_blank"> gwt-maven-plugin/gwt-maven-plugin </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/madeye/proxydroid" target="_blank"> madeye/proxydroid </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/yegor256/s3auth" target="_blank"> yegor256/s3auth </th>
+                          <td> 46 </td>
+                          <td> 12 </td>
+                          <td> 3 </td>
+                          <td> 58 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/MoriTanosuke/glacieruploader" target="_blank"> MoriTanosuke/glacieruploader </th>
+                          <td> 15 </td>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jeluard/semantic-versioning" target="_blank"> jeluard/semantic-versioning </th>
+                          <td> 26 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/resthub/springmvc-router" target="_blank"> resthub/springmvc-router </th>
+                          <td> 29 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jOOQ/jOOR" target="_blank"> jOOQ/jOOR </th>
+                          <td> 17 </td>
+                          <td> 2 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/DiUS/java-faker" target="_blank"> DiUS/java-faker </th>
+                          <td> 48 </td>
+                          <td> 10 </td>
+                          <td> 16 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pac4j/pac4j" target="_blank"> pac4j/pac4j </th>
+                          <td> 473 </td>
+                          <td> 3 </td>
+                          <td> 23 </td>
+                          <td> 28 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pedrovgs/Algorithms" target="_blank"> pedrovgs/Algorithms </th>
+                          <td> 13 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Graphify/graphify" target="_blank"> Graphify/graphify </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/wix/petri" target="_blank"> wix/petri </th>
+                          <td> 17 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/guava" target="_blank"> google/guava </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sstone/akka-amqp-proxies" target="_blank"> sstone/akka-amqp-proxies </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/toomasr/skype-bot" target="_blank"> toomasr/skype-bot </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/koraktor/steam-condenser-java" target="_blank"> koraktor/steam-condenser-java </th>
+                          <td> 19 </td>
+                          <td> 6 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bbeck/token-bucket" target="_blank"> bbeck/token-bucket </th>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Findwise/Hydra" target="_blank"> Findwise/Hydra </th>
+                          <td> 114 </td>
+                          <td> 1 </td>
+                          <td> 8 </td>
+                          <td> 27 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mikaelhg/urlbuilder" target="_blank"> mikaelhg/urlbuilder </th>
+                          <td> 13 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/organicveggie/metrics-statsd" target="_blank"> organicveggie/metrics-statsd </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tumblr/jumblr" target="_blank"> tumblr/jumblr </th>
+                          <td> 33 </td>
+                          <td> 6 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mybatis/mybatis-3" target="_blank"> mybatis/mybatis-3 </th>
+                          <td> 304 </td>
+                          <td> 7 </td>
+                          <td> 15 </td>
+                          <td> 11 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/undera/jmeter-plugins" target="_blank"> undera/jmeter-plugins </th>
+                          <td> 183 </td>
+                          <td> 38 </td>
+                          <td> 44 </td>
+                          <td> 37 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mybatis/spring" target="_blank"> mybatis/spring </th>
+                          <td> 104 </td>
+                          <td> 7 </td>
+                          <td> 6 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/roboguice/roboguice" target="_blank"> roboguice/roboguice </th>
+                          <td> 103 </td>
+                          <td> 14 </td>
+                          <td> 58 </td>
+                          <td> 21 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/openpnp/openpnp" target="_blank"> openpnp/openpnp </th>
+                          <td> 437 </td>
+                          <td> 159 </td>
+                          <td> 18 </td>
+                          <td> 51 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/CamelCookbook/camel-cookbook-examples" target="_blank"> CamelCookbook/camel-cookbook-examples </th>
+                          <td> 19 </td>
+                          <td> 14 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/zhangkaitao/es" target="_blank"> zhangkaitao/es </th>
+                          <td> 11 </td>
+                          <td> 0 </td>
+                          <td> 13 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/wstrange/GoogleAuth" target="_blank"> wstrange/GoogleAuth </th>
+                          <td> 18 </td>
+                          <td> 6 </td>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jmxtrans/jmxtrans" target="_blank"> jmxtrans/jmxtrans </th>
+                          <td> 287 </td>
+                          <td> 10 </td>
+                          <td> 3 </td>
+                          <td> 78 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OpenGrok/OpenGrok" target="_blank"> OpenGrok/OpenGrok </th>
+                          <td> 395 </td>
+                          <td> 16 </td>
+                          <td> 6 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/wuman/JReadability" target="_blank"> wuman/JReadability </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/doanduyhai/Achilles" target="_blank"> doanduyhai/Achilles </th>
+                          <td> 47 </td>
+                          <td> 10 </td>
+                          <td> 11 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Yubico/ykneo-openpgp" target="_blank"> Yubico/ykneo-openpgp </th>
+                          <td> 8 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/lviggiano/owner" target="_blank"> lviggiano/owner </th>
+                          <td> 36 </td>
+                          <td> 1 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/perwendel/spark" target="_blank"> perwendel/spark </th>
+                          <td> 226 </td>
+                          <td> 29 </td>
+                          <td> 3 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/jackrabbit-oak" target="_blank"> apache/jackrabbit-oak </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jbehave/jbehave-core" target="_blank"> jbehave/jbehave-core </th>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/webbit/webbit" target="_blank"> webbit/webbit </th>
+                          <td> 9 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/qos-ch/slf4j" target="_blank"> qos-ch/slf4j </th>
+                          <td> 43 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/magro/kryo-serializers" target="_blank"> magro/kryo-serializers </th>
+                          <td> 22 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/opensagres/xdocreport" target="_blank"> opensagres/xdocreport </th>
+                          <td> 42 </td>
+                          <td> 21 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/play/play-android" target="_blank"> play/play-android </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Asquera/elasticsearch-http-basic" target="_blank"> Asquera/elasticsearch-http-basic </th>
+                          <td> 12 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/maxmind/geoip-api-java" target="_blank"> maxmind/geoip-api-java </th>
+                          <td> 17 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dain/leveldb" target="_blank"> dain/leveldb </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/before/uadetector" target="_blank"> before/uadetector </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/woorea/openstack-java-sdk" target="_blank"> woorea/openstack-java-sdk </th>
+                          <td> 76 </td>
+                          <td> 3 </td>
+                          <td> 14 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caskdata/tephra" target="_blank"> caskdata/tephra </th>
+                          <td> 94 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jwtk/jjwt" target="_blank"> jwtk/jjwt </th>
+                          <td> 77 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/burst" target="_blank"> square/burst </th>
+                          <td> 18 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spring-cloud/spring-cloud-config" target="_blank"> spring-cloud/spring-cloud-config </th>
+                          <td> 138 </td>
+                          <td> 53 </td>
+                          <td> 41 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sd4324530/fastweixin" target="_blank"> sd4324530/fastweixin </th>
+                          <td> 54 </td>
+                          <td> 47 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/zafarkhaja/jsemver" target="_blank"> zafarkhaja/jsemver </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/davidmoten/rtree" target="_blank"> davidmoten/rtree </th>
+                          <td> 27 </td>
+                          <td> 2 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/GlowstoneMC/Glowstone" target="_blank"> GlowstoneMC/Glowstone </th>
+                          <td> 104 </td>
+                          <td> 28 </td>
+                          <td> 38 </td>
+                          <td> 26 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OfficeDev/ews-java-api" target="_blank"> OfficeDev/ews-java-api </th>
+                          <td> 115 </td>
+                          <td> 5 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/NLPchina/elasticsearch-sql" target="_blank"> NLPchina/elasticsearch-sql </th>
+                          <td> 127 </td>
+                          <td> 33 </td>
+                          <td> 28 </td>
+                          <td> 24 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spring-projects/spring-security-oauth" target="_blank"> spring-projects/spring-security-oauth </th>
+                          <td> 10 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/gephi/gephi" target="_blank"> gephi/gephi </th>
+                          <td> 92 </td>
+                          <td> 35 </td>
+                          <td> 18 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/yasserg/crawler4j" target="_blank"> yasserg/crawler4j </th>
+                          <td> 45 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/socketio/socket.io-client-java" target="_blank"> socketio/socket.io-client-java </th>
+                          <td> 27 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pagehelper/Mybatis-PageHelper" target="_blank"> pagehelper/Mybatis-PageHelper </th>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/aws/aws-sdk-java" target="_blank"> aws/aws-sdk-java </th>
+                          <td> 163 </td>
+                          <td> 6 </td>
+                          <td> 16 </td>
+                          <td> 108 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bytedeco/javacpp" target="_blank"> bytedeco/javacpp </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OpenFeign/feign" target="_blank"> OpenFeign/feign </th>
+                          <td> 79 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bonnyfone/vectalign" target="_blank"> bonnyfone/vectalign </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/vavr-io/vavr" target="_blank"> vavr-io/vavr </th>
+                          <td> 1137 </td>
+                          <td> 68 </td>
+                          <td> 31 </td>
+                          <td> 21 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/otale/tale" target="_blank"> otale/tale </th>
+                          <td> 47 </td>
+                          <td> 3 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/bytedeco/javacv" target="_blank"> bytedeco/javacv </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhalterman/failsafe" target="_blank"> jhalterman/failsafe </th>
+                          <td> 13 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/chewiebug/GCViewer" target="_blank"> chewiebug/GCViewer </th>
+                          <td> 19 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ninjaframework/ninja" target="_blank"> ninjaframework/ninja </th>
+                          <td> 96 </td>
+                          <td> 9 </td>
+                          <td> 4 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/hs-web/hsweb-framework" target="_blank"> hs-web/hsweb-framework </th>
+                          <td> 74 </td>
+                          <td> 20 </td>
+                          <td> 13 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/arturmkrtchyan/iban4j" target="_blank"> arturmkrtchyan/iban4j </th>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/siom79/japicmp" target="_blank"> siom79/japicmp </th>
+                          <td> 68 </td>
+                          <td> 11 </td>
+                          <td> 17 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mgodave/barge" target="_blank"> mgodave/barge </th>
+                          <td> 47 </td>
+                          <td> 7 </td>
+                          <td> 27 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/torakiki/sejda" target="_blank"> torakiki/sejda </th>
+                          <td> 23 </td>
+                          <td> 7 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/corydissinger/raw4j" target="_blank"> corydissinger/raw4j </th>
+                          <td> 15 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/justinsb/jetcd" target="_blank"> justinsb/jetcd </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/microg/NetworkLocation" target="_blank"> microg/NetworkLocation </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/aws/aws-dynamodb-session-tomcat" target="_blank"> aws/aws-dynamodb-session-tomcat </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jcgay/maven-color" target="_blank"> jcgay/maven-color </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/brettwooldridge/NuProcess" target="_blank"> brettwooldridge/NuProcess </th>
+                          <td> 24 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/orientechnologies/spring-data-orientdb" target="_blank"> orientechnologies/spring-data-orientdb </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/davidmoten/rxjava-jdbc" target="_blank"> davidmoten/rxjava-jdbc </th>
+                          <td> 24 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/redwarp/9-Patch-Resizer" target="_blank"> redwarp/9-Patch-Resizer </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/la-team/light-admin" target="_blank"> la-team/light-admin </th>
+                          <td> 15 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/larsga/Duke" target="_blank"> larsga/Duke </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dropwizard/metrics" target="_blank"> dropwizard/metrics </th>
+                          <td> 228 </td>
+                          <td> 15 </td>
+                          <td> 6 </td>
+                          <td> 24 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/IDPF/epubcheck" target="_blank"> IDPF/epubcheck </th>
+                          <td> 81 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhalterman/lyra" target="_blank"> jhalterman/lyra </th>
+                          <td> 14 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jpush/jpush-api-java-client" target="_blank"> jpush/jpush-api-java-client </th>
+                          <td> 80 </td>
+                          <td> 4 </td>
+                          <td> 16 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caelum/vraptor4" target="_blank"> caelum/vraptor4 </th>
+                          <td> 566 </td>
+                          <td> 17 </td>
+                          <td> 14 </td>
+                          <td> 58 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/coverity/coverity-security-library" target="_blank"> coverity/coverity-security-library </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/metamx/druid" target="_blank"> metamx/druid </th>
+                          <td> 29 </td>
+                          <td> 23 </td>
+                          <td> 4 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/adyliu/zkclient" target="_blank"> adyliu/zkclient </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jmock-developers/jmock-library" target="_blank"> jmock-developers/jmock-library </th>
+                          <td> 19 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mikera/vectorz" target="_blank"> mikera/vectorz </th>
+                          <td> 138 </td>
+                          <td> 31 </td>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-module-jsonSchema" target="_blank"> FasterXML/jackson-module-jsonSchema </th>
+                          <td> 36 </td>
+                          <td> 12 </td>
+                          <td> 2 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/oltpbenchmark/oltpbench" target="_blank"> oltpbenchmark/oltpbench </th>
+                          <td> 68 </td>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/JodaOrg/joda-beans" target="_blank"> JodaOrg/joda-beans </th>
+                          <td> 6 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/reidarsollid/RustyCage" target="_blank"> reidarsollid/RustyCage </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ajermakovics/eclipse-instasearch" target="_blank"> ajermakovics/eclipse-instasearch </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jzy3d/jzy3d-api" target="_blank"> jzy3d/jzy3d-api </th>
+                          <td> 20 </td>
+                          <td> 3 </td>
+                          <td> 4 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pierre/meteo" target="_blank"> pierre/meteo </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jruby/joni" target="_blank"> jruby/joni </th>
+                          <td> 17 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ganglia/jmxetric" target="_blank"> ganglia/jmxetric </th>
+                          <td> 14 </td>
+                          <td> 1 </td>
+                          <td> 10 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sanity/LastCalc" target="_blank"> sanity/LastCalc </th>
+                          <td> 6 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jhalterman/expiringmap" target="_blank"> jhalterman/expiringmap </th>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-datatype-joda" target="_blank"> FasterXML/jackson-datatype-joda </th>
+                          <td> 29 </td>
+                          <td> 13 </td>
+                          <td> 4 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ThreeTen/threeten-extra" target="_blank"> ThreeTen/threeten-extra </th>
+                          <td> 27 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Simmetrics/simmetrics" target="_blank"> Simmetrics/simmetrics </th>
+                          <td> 36 </td>
+                          <td> 6 </td>
+                          <td> 18 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/brettwooldridge/SansOrm" target="_blank"> brettwooldridge/SansOrm </th>
+                          <td> 10 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/olap4j/olap4j" target="_blank"> olap4j/olap4j </th>
+                          <td> 4 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tbroyer/gwt-maven-plugin" target="_blank"> tbroyer/gwt-maven-plugin </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/wuman/AndroidImageLoader" target="_blank"> wuman/AndroidImageLoader </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/zenobase/geocluster-facet" target="_blank"> zenobase/geocluster-facet </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/checkstyle/checkstyle" target="_blank"> checkstyle/checkstyle </th>
+                          <td> 12 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/compile-testing" target="_blank"> google/compile-testing </th>
+                          <td> 32 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-datatype-hibernate" target="_blank"> FasterXML/jackson-datatype-hibernate </th>
+                          <td> 17 </td>
+                          <td> 9 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/wire" target="_blank"> square/wire </th>
+                          <td> 504 </td>
+                          <td> 1 </td>
+                          <td> 10 </td>
+                          <td> 70 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/l0rdn1kk0n/wicket-bootstrap" target="_blank"> l0rdn1kk0n/wicket-bootstrap </th>
+                          <td> 336 </td>
+                          <td> 82 </td>
+                          <td> 262 </td>
+                          <td> 60 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/torodb/stampede" target="_blank"> torodb/stampede </th>
+                          <td> 407 </td>
+                          <td> 263 </td>
+                          <td> 9 </td>
+                          <td> 19 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/chanjarster/weixin-java-tools" target="_blank"> chanjarster/weixin-java-tools </th>
+                          <td> 64 </td>
+                          <td> 26 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/poetix/protonpack" target="_blank"> poetix/protonpack </th>
+                          <td> 20 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sanity/quickml" target="_blank"> sanity/quickml </th>
+                          <td> 221 </td>
+                          <td> 53 </td>
+                          <td> 80 </td>
+                          <td> 24 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/iluwatar/java-design-patterns" target="_blank"> iluwatar/java-design-patterns </th>
+                          <td> 318 </td>
+                          <td> 75 </td>
+                          <td> 50 </td>
+                          <td> 18 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/xerial/sqlite-jdbc" target="_blank"> xerial/sqlite-jdbc </th>
+                          <td> 102 </td>
+                          <td> 0 </td>
+                          <td> 9 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OryxProject/oryx" target="_blank"> OryxProject/oryx </th>
+                          <td> 100 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sockeqwe/fragmentargs" target="_blank"> sockeqwe/fragmentargs </th>
+                          <td> 18 </td>
+                          <td> 9 </td>
+                          <td> 2 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/guice" target="_blank"> google/guice </th>
+                          <td> 70 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spotify/docker-maven-plugin" target="_blank"> spotify/docker-maven-plugin </th>
+                          <td> 100 </td>
+                          <td> 72 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ObeoNetwork/UML-Designer" target="_blank"> ObeoNetwork/UML-Designer </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/truth" target="_blank"> google/truth </th>
+                          <td> 94 </td>
+                          <td> 15 </td>
+                          <td> 2 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/databricks/learning-spark" target="_blank"> databricks/learning-spark </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spotify/helios" target="_blank"> spotify/helios </th>
+                          <td> 846 </td>
+                          <td> 750 </td>
+                          <td> 29 </td>
+                          <td> 32 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spotify/docker-client" target="_blank"> spotify/docker-client </th>
+                          <td> 450 </td>
+                          <td> 183 </td>
+                          <td> 52 </td>
+                          <td> 116 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/xtreemfs/xtreemfs" target="_blank"> xtreemfs/xtreemfs </th>
+                          <td> 372 </td>
+                          <td> 93 </td>
+                          <td> 31 </td>
+                          <td> 78 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/TannerPerrien/picasso-transformations" target="_blank"> TannerPerrien/picasso-transformations </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/knightliao/disconf" target="_blank"> knightliao/disconf </th>
+                          <td> 55 </td>
+                          <td> 7 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tuenti/SmsRadar" target="_blank"> tuenti/SmsRadar </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/closure-compiler" target="_blank"> google/closure-compiler </th>
+                          <td> 274 </td>
+                          <td> 2 </td>
+                          <td> 26 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/querydsl/querydsl" target="_blank"> querydsl/querydsl </th>
+                          <td> 729 </td>
+                          <td> 27 </td>
+                          <td> 92 </td>
+                          <td> 113 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cglib/cglib" target="_blank"> cglib/cglib </th>
+                          <td> 30 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caelum/mamute" target="_blank"> caelum/mamute </th>
+                          <td> 122 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 28 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/okio" target="_blank"> square/okio </th>
+                          <td> 140 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/igniterealtime/Openfire" target="_blank"> igniterealtime/Openfire </th>
+                          <td> 626 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 36 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/devnied/EMV-NFC-Paycard-Enrollment" target="_blank"> devnied/EMV-NFC-Paycard-Enrollment </th>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/oxo42/stateless4j" target="_blank"> oxo42/stateless4j </th>
+                          <td> 18 </td>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jirutka/spring-rest-exception-handler" target="_blank"> jirutka/spring-rest-exception-handler </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/SonarSource/sonarqube" target="_blank"> SonarSource/sonarqube </th>
+                          <td> 312 </td>
+                          <td> 70 </td>
+                          <td> 4 </td>
+                          <td> 120 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/stephanenicolas/robospice" target="_blank"> stephanenicolas/robospice </th>
+                          <td> 50 </td>
+                          <td> 6 </td>
+                          <td> 39 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/psi-probe/psi-probe" target="_blank"> psi-probe/psi-probe </th>
+                          <td> 437 </td>
+                          <td> 3 </td>
+                          <td> 20 </td>
+                          <td> 20 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/moshi" target="_blank"> square/moshi </th>
+                          <td> 134 </td>
+                          <td> 0 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/keywhiz" target="_blank"> square/keywhiz </th>
+                          <td> 270 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/objectify/objectify" target="_blank"> objectify/objectify </th>
+                          <td> 14 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/vbauer/jackdaw" target="_blank"> vbauer/jackdaw </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/vbauer/caesar" target="_blank"> vbauer/caesar </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mono/sharpen" target="_blank"> mono/sharpen </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/timmolter/XChange" target="_blank"> timmolter/XChange </th>
+                          <td> 1343 </td>
+                          <td> 175 </td>
+                          <td> 96 </td>
+                          <td> 129 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cloudfoundry/cf-java-client" target="_blank"> cloudfoundry/cf-java-client </th>
+                          <td> 1350 </td>
+                          <td> 1150 </td>
+                          <td> 42 </td>
+                          <td> 102 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ktoso/maven-git-commit-id-plugin" target="_blank"> ktoso/maven-git-commit-id-plugin </th>
+                          <td> 120 </td>
+                          <td> 1 </td>
+                          <td> 7 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ryantenney/metrics-spring" target="_blank"> ryantenney/metrics-spring </th>
+                          <td> 43 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rtyley/roboguice-sherlock" target="_blank"> rtyley/roboguice-sherlock </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Hidendra/LWC" target="_blank"> Hidendra/LWC </th>
+                          <td> 13 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jOOQ/jOOQ" target="_blank"> jOOQ/jOOQ </th>
+                          <td> 113 </td>
+                          <td> 10 </td>
+                          <td> 64 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jsimone/webapp-runner" target="_blank"> jsimone/webapp-runner </th>
+                          <td> 16 </td>
+                          <td> 9 </td>
+                          <td> 11 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/julianhyde/linq4j" target="_blank"> julianhyde/linq4j </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/retrofit" target="_blank"> square/retrofit </th>
+                          <td> 526 </td>
+                          <td> 3 </td>
+                          <td> 10 </td>
+                          <td> 20 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/geotools/geotools" target="_blank"> geotools/geotools </th>
+                          <td> 1242 </td>
+                          <td> 203 </td>
+                          <td> 178 </td>
+                          <td> 510 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sematext/HBaseHUT" target="_blank"> sematext/HBaseHUT </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/JodaOrg/joda-time" target="_blank"> JodaOrg/joda-time </th>
+                          <td> 72 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tcurdt/jdeb" target="_blank"> tcurdt/jdeb </th>
+                          <td> 60 </td>
+                          <td> 5 </td>
+                          <td> 9 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server" target="_blank"> mitreid-connect/OpenID-Connect-Java-Spring-Server </th>
+                          <td> 60 </td>
+                          <td> 28 </td>
+                          <td> 3 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jknack/handlebars.java" target="_blank"> jknack/handlebars.java </th>
+                          <td> 75 </td>
+                          <td> 7 </td>
+                          <td> 23 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/scobal/seyren" target="_blank"> scobal/seyren </th>
+                          <td> 135 </td>
+                          <td> 15 </td>
+                          <td> 6 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/zxing/zxing" target="_blank"> zxing/zxing </th>
+                          <td> 75 </td>
+                          <td> 50 </td>
+                          <td> 5 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/weld/core" target="_blank"> weld/core </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/karussell/snacktory" target="_blank"> karussell/snacktory </th>
+                          <td> 17 </td>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                          <td> 18 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kevinsawicki/http-request" target="_blank"> kevinsawicki/http-request </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caelum/vraptor" target="_blank"> caelum/vraptor </th>
+                          <td> 86 </td>
+                          <td> 11 </td>
+                          <td> 15 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/notnoop/java-apns" target="_blank"> notnoop/java-apns </th>
+                          <td> 42 </td>
+                          <td> 3 </td>
+                          <td> 7 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/gwtbootstrap/gwt-bootstrap" target="_blank"> gwtbootstrap/gwt-bootstrap </th>
+                          <td> 95 </td>
+                          <td> 7 </td>
+                          <td> 24 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/super-csv/super-csv" target="_blank"> super-csv/super-csv </th>
+                          <td> 30 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pac4j/play-pac4j" target="_blank"> pac4j/play-pac4j </th>
+                          <td> 88 </td>
+                          <td> 6 </td>
+                          <td> 14 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/asciidocfx/AsciidocFX" target="_blank"> asciidocfx/AsciidocFX </th>
+                          <td> 156 </td>
+                          <td> 14 </td>
+                          <td> 48 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/spotify/cassandra-reaper" target="_blank"> spotify/cassandra-reaper </th>
+                          <td> 139 </td>
+                          <td> 44 </td>
+                          <td> 9 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/expectedbehavior/gauges-android" target="_blank"> expectedbehavior/gauges-android </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/drill" target="_blank"> apache/drill </th>
+                          <td> 58 </td>
+                          <td> 58 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dkunzler/esperandro" target="_blank"> dkunzler/esperandro </th>
+                          <td> 16 </td>
+                          <td> 4 </td>
+                          <td> 5 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/trautonen/coveralls-maven-plugin" target="_blank"> trautonen/coveralls-maven-plugin </th>
+                          <td> 24 </td>
+                          <td> 3 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/nurkiewicz/spring-data-jdbc-repository" target="_blank"> nurkiewicz/spring-data-jdbc-repository </th>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dianping/cat" target="_blank"> dianping/cat </th>
+                          <td> 1273 </td>
+                          <td> 575 </td>
+                          <td> 133 </td>
+                          <td> 175 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/datastax/java-driver" target="_blank"> datastax/java-driver </th>
+                          <td> 422 </td>
+                          <td> 92 </td>
+                          <td> 50 </td>
+                          <td> 35 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/paulhoule/infovore" target="_blank"> paulhoule/infovore </th>
+                          <td> 24 </td>
+                          <td> 12 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Comcast/cmb" target="_blank"> Comcast/cmb </th>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/olivergierke/spring-restbucks" target="_blank"> olivergierke/spring-restbucks </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/klout/brickhouse" target="_blank"> klout/brickhouse </th>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/androrm/androrm" target="_blank"> androrm/androrm </th>
+                          <td> 3 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Comcast/jrugged" target="_blank"> Comcast/jrugged </th>
+                          <td> 23 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/yammer/tenacity" target="_blank"> yammer/tenacity </th>
+                          <td> 52 </td>
+                          <td> 27 </td>
+                          <td> 7 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/jimfs" target="_blank"> google/jimfs </th>
+                          <td> 9 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/protostuff/protostuff" target="_blank"> protostuff/protostuff </th>
+                          <td> 105 </td>
+                          <td> 5 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/twitter/hpack" target="_blank"> twitter/hpack </th>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/WhisperSystems/BitHub" target="_blank"> WhisperSystems/BitHub </th>
+                          <td> 9 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/gwtbootstrap3/gwtbootstrap3" target="_blank"> gwtbootstrap3/gwtbootstrap3 </th>
+                          <td> 156 </td>
+                          <td> 5 </td>
+                          <td> 3 </td>
+                          <td> 25 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/plantuml/plantuml" target="_blank"> plantuml/plantuml </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ronmamo/reflections" target="_blank"> ronmamo/reflections </th>
+                          <td> 28 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/guari/eclipse-ui-theme" target="_blank"> guari/eclipse-ui-theme </th>
+                          <td> 10 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/code4craft/webmagic" target="_blank"> code4craft/webmagic </th>
+                          <td> 106 </td>
+                          <td> 18 </td>
+                          <td> 31 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/TheHolyWaffle/TeamSpeak-3-Java-API" target="_blank"> TheHolyWaffle/TeamSpeak-3-Java-API </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/awslabs/route53-infima" target="_blank"> awslabs/route53-infima </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jcabi/jcabi-github" target="_blank"> jcabi/jcabi-github </th>
+                          <td> 225 </td>
+                          <td> 43 </td>
+                          <td> 56 </td>
+                          <td> 107 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jreijn/spring-comparing-template-engines" target="_blank"> jreijn/spring-comparing-template-engines </th>
+                          <td> 11 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/uaihebert/uaicontacts" target="_blank"> uaihebert/uaicontacts </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ripple/ripple-lib-java" target="_blank"> ripple/ripple-lib-java </th>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Spoutcraft/LegacyLauncher" target="_blank"> Spoutcraft/LegacyLauncher </th>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/seismic" target="_blank"> square/seismic </th>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ArcBees/GWTP" target="_blank"> ArcBees/GWTP </th>
+                          <td> 69 </td>
+                          <td> 11 </td>
+                          <td> 60 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jacoco/jacoco" target="_blank"> jacoco/jacoco </th>
+                          <td> 86 </td>
+                          <td> 8 </td>
+                          <td> 22 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-dataformat-csv" target="_blank"> FasterXML/jackson-dataformat-csv </th>
+                          <td> 45 </td>
+                          <td> 21 </td>
+                          <td> 1 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/pollexor" target="_blank"> square/pollexor </th>
+                          <td> 21 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/restlet/restlet-framework-java" target="_blank"> restlet/restlet-framework-java </th>
+                          <td> 157 </td>
+                          <td> 38 </td>
+                          <td> 4 </td>
+                          <td> 103 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/okhttp" target="_blank"> square/okhttp </th>
+                          <td> 1591 </td>
+                          <td> 248 </td>
+                          <td> 260 </td>
+                          <td> 219 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/neuland/jade4j" target="_blank"> neuland/jade4j </th>
+                          <td> 41 </td>
+                          <td> 20 </td>
+                          <td> 6 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pulse00/Symfony-2-Eclipse-Plugin" target="_blank"> pulse00/Symfony-2-Eclipse-Plugin </th>
+                          <td> 19 </td>
+                          <td> 2 </td>
+                          <td> 11 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/neophob/PixelController" target="_blank"> neophob/PixelController </th>
+                          <td> 39 </td>
+                          <td> 13 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/smooks/smooks" target="_blank"> smooks/smooks </th>
+                          <td> 12 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/julianhyde/optiq" target="_blank"> julianhyde/optiq </th>
+                          <td> 8 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/fabiomaffioletti/jsondoc" target="_blank"> fabiomaffioletti/jsondoc </th>
+                          <td> 22 </td>
+                          <td> 0 </td>
+                          <td> 7 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/cereda/arara" target="_blank"> cereda/arara </th>
+                          <td> 15 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/pgjdbc/pgjdbc" target="_blank"> pgjdbc/pgjdbc </th>
+                          <td> 179 </td>
+                          <td> 6 </td>
+                          <td> 6 </td>
+                          <td> 21 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-dataformat-xml" target="_blank"> FasterXML/jackson-dataformat-xml </th>
+                          <td> 40 </td>
+                          <td> 21 </td>
+                          <td> 8 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/lemire/javaewah" target="_blank"> lemire/javaewah </th>
+                          <td> 36 </td>
+                          <td> 19 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tinkerpop/frames" target="_blank"> tinkerpop/frames </th>
+                          <td> 34 </td>
+                          <td> 7 </td>
+                          <td> 12 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/samskivert/jmustache" target="_blank"> samskivert/jmustache </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mpatric/mp3agic" target="_blank"> mpatric/mp3agic </th>
+                          <td> 26 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/timmolter/XChart" target="_blank"> timmolter/XChart </th>
+                          <td> 76 </td>
+                          <td> 2 </td>
+                          <td> 10 </td>
+                          <td> 18 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/redline-smalltalk/redline-smalltalk" target="_blank"> redline-smalltalk/redline-smalltalk </th>
+                          <td> 72 </td>
+                          <td> 5 </td>
+                          <td> 6 </td>
+                          <td> 35 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/graphaware/neo4j-timetree" target="_blank"> graphaware/neo4j-timetree </th>
+                          <td> 34 </td>
+                          <td> 8 </td>
+                          <td> 11 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/thelinmichael/spotify-web-api-java" target="_blank"> thelinmichael/spotify-web-api-java </th>
+                          <td> 30 </td>
+                          <td> 12 </td>
+                          <td> 10 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/shilad/wikibrain" target="_blank"> shilad/wikibrain </th>
+                          <td> 258 </td>
+                          <td> 104 </td>
+                          <td> 124 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/codecentric/spring-boot-starter-batch-web" target="_blank"> codecentric/spring-boot-starter-batch-web </th>
+                          <td> 19 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/clemp6r/futuroid" target="_blank"> clemp6r/futuroid </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/tajo" target="_blank"> apache/tajo </th>
+                          <td> 157 </td>
+                          <td> 80 </td>
+                          <td> 23 </td>
+                          <td> 35 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FenixEdu/fenixedu-academic" target="_blank"> FenixEdu/fenixedu-academic </th>
+                          <td> 1005 </td>
+                          <td> 181 </td>
+                          <td> 52 </td>
+                          <td> 16 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/welovecoding/editorconfig-netbeans" target="_blank"> welovecoding/editorconfig-netbeans </th>
+                          <td> 32 </td>
+                          <td> 18 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/greenmail-mail-test/greenmail" target="_blank"> greenmail-mail-test/greenmail </th>
+                          <td> 53 </td>
+                          <td> 38 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OpenSOC/opensoc-streaming" target="_blank"> OpenSOC/opensoc-streaming </th>
+                          <td> 25 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caskdata/coopr" target="_blank"> caskdata/coopr </th>
+                          <td> 836 </td>
+                          <td> 395 </td>
+                          <td> 234 </td>
+                          <td> 117 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/paukiatwee/budgetapp" target="_blank"> paukiatwee/budgetapp </th>
+                          <td> 10 </td>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jcabi/jcabi-ssh" target="_blank"> jcabi/jcabi-ssh </th>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 40 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/OrbitzWorldwide/consul-client" target="_blank"> OrbitzWorldwide/consul-client </th>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jmrozanec/cron-utils" target="_blank"> jmrozanec/cron-utils </th>
+                          <td> 194 </td>
+                          <td> 31 </td>
+                          <td> 19 </td>
+                          <td> 80 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/vdenotaris/spring-boot-security-saml-sample" target="_blank"> vdenotaris/spring-boot-security-saml-sample </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mesos/storm" target="_blank"> mesos/storm </th>
+                          <td> 112 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Kixeye/chassis" target="_blank"> Kixeye/chassis </th>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/matlux/jvm-breakglass" target="_blank"> matlux/jvm-breakglass </th>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Tillerino/Tillerinobot" target="_blank"> Tillerino/Tillerinobot </th>
+                          <td> 18 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/matlux/jvm-breakglass" target="_blank"> matlux/jvm-breakglass </th>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Tillerino/Tillerinobot" target="_blank"> Tillerino/Tillerinobot </th>
+                          <td> 18 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/alibaba/cobarclient" target="_blank"> alibaba/cobarclient </th>
+                          <td> 8 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/shyiko/mysql-binlog-connector-java" target="_blank"> shyiko/mysql-binlog-connector-java </th>
+                          <td> 21 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/SpigotMC/BungeeCord" target="_blank"> SpigotMC/BungeeCord </th>
+                          <td> 24 </td>
+                          <td> 3 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/atermenji/IconicDroid" target="_blank"> atermenji/IconicDroid </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/davidmoten/geo" target="_blank"> davidmoten/geo </th>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/alexxiyang/shiro-redis" target="_blank"> alexxiyang/shiro-redis </th>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/groupon/Selenium-Grid-Extras" target="_blank"> groupon/Selenium-Grid-Extras </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/robolectric/deckard-maven" target="_blank"> robolectric/deckard-maven </th>
+                          <td> 9 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/forge/roaster" target="_blank"> forge/roaster </th>
+                          <td> 22 </td>
+                          <td> 5 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jcabi/jcabi-http" target="_blank"> jcabi/jcabi-http </th>
+                          <td> 36 </td>
+                          <td> 1 </td>
+                          <td> 10 </td>
+                          <td> 61 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jprante/elasticsearch-gatherer" target="_blank"> jprante/elasticsearch-gatherer </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/smola/galimatias" target="_blank"> smola/galimatias </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/headissue/cache2k" target="_blank"> headissue/cache2k </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/HolmesNL/kafka-spout" target="_blank"> HolmesNL/kafka-spout </th>
+                          <td> 11 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/recommenders/rival" target="_blank"> recommenders/rival </th>
+                          <td> 26 </td>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/aaberg/sql2o" target="_blank"> aaberg/sql2o </th>
+                          <td> 18 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kenglxn/QRGen" target="_blank"> kenglxn/QRGen </th>
+                          <td> 44 </td>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jmkgreen/morphia" target="_blank"> jmkgreen/morphia </th>
+                          <td> 25 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sarxos/webcam-capture" target="_blank"> sarxos/webcam-capture </th>
+                          <td> 27 </td>
+                          <td> 13 </td>
+                          <td> 14 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/thinkaurelius/faunus" target="_blank"> thinkaurelius/faunus </th>
+                          <td> 31 </td>
+                          <td> 9 </td>
+                          <td> 12 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/linkedin/parseq" target="_blank"> linkedin/parseq </th>
+                          <td> 50 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 5 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/dagger" target="_blank"> square/dagger </th>
+                          <td> 359 </td>
+                          <td> 145 </td>
+                          <td> 13 </td>
+                          <td> 21 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Berico-Technologies/CLAVIN" target="_blank"> Berico-Technologies/CLAVIN </th>
+                          <td> 36 </td>
+                          <td> 4 </td>
+                          <td> 20 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/lemire/JavaFastPFOR" target="_blank"> lemire/JavaFastPFOR </th>
+                          <td> 20 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ActiveJpa/activejpa" target="_blank"> ActiveJpa/activejpa </th>
+                          <td> 11 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/marschall/memoryfilesystem" target="_blank"> marschall/memoryfilesystem </th>
+                          <td> 29 </td>
+                          <td> 2 </td>
+                          <td> 1 </td>
+                          <td> 8 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/thrau/jarchivelib" target="_blank"> thrau/jarchivelib </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jberkel/pay-me" target="_blank"> jberkel/pay-me </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/AdoptOpenJDK/lambda-tutorial" target="_blank"> AdoptOpenJDK/lambda-tutorial </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/caspark/eclipse-multicursor" target="_blank"> caspark/eclipse-multicursor </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Slim3/slim3" target="_blank"> Slim3/slim3 </th>
+                          <td> 5 </td>
+                          <td> 0 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/ontop/ontop" target="_blank"> ontop/ontop </th>
+                          <td> 1259 </td>
+                          <td> 800 </td>
+                          <td> 81 </td>
+                          <td> 142 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/forge/core" target="_blank"> forge/core </th>
+                          <td> 37 </td>
+                          <td> 37 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/alecgorge/jsonapi" target="_blank"> alecgorge/jsonapi </th>
+                          <td> 38 </td>
+                          <td> 6 </td>
+                          <td> 18 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/MilkBowl/Vault" target="_blank"> MilkBowl/Vault </th>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 10 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/square/otto" target="_blank"> square/otto </th>
+                          <td> 71 </td>
+                          <td> 0 </td>
+                          <td> 81 </td>
+                          <td> 9 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/vvakame/JsonPullParser" target="_blank"> vvakame/JsonPullParser </th>
+                          <td> 32 </td>
+                          <td> 2 </td>
+                          <td> 8 </td>
+                          <td> 17 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/qos-ch/logback" target="_blank"> qos-ch/logback </th>
+                          <td> 62 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 23 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/write2munish/Akka-Essentials" target="_blank"> write2munish/Akka-Essentials </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jOOQ/jOOX" target="_blank"> jOOQ/jOOX </th>
+                          <td> 10 </td>
+                          <td> 4 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/myabc/markdownj" target="_blank"> myabc/markdownj </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/serso/android-common" target="_blank"> serso/android-common </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/tinkerpop/pipes" target="_blank"> tinkerpop/pipes </th>
+                          <td> 7 </td>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/maxcom/lorsource" target="_blank"> maxcom/lorsource </th>
+                          <td> 343 </td>
+                          <td> 25 </td>
+                          <td> 31 </td>
+                          <td> 13 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/eclipse-color-theme/eclipse-color-theme" target="_blank"> eclipse-color-theme/eclipse-color-theme </th>
+                          <td> 14 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sachin-handiekar/jInstagram" target="_blank"> sachin-handiekar/jInstagram </th>
+                          <td> 77 </td>
+                          <td> 38 </td>
+                          <td> 12 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-annotations" target="_blank"> FasterXML/jackson-annotations </th>
+                          <td> 25 </td>
+                          <td> 8 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/JakeWharton/DiskLruCache" target="_blank"> JakeWharton/DiskLruCache </th>
+                          <td> 21 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/SomMeri/less4j" target="_blank"> SomMeri/less4j </th>
+                          <td> 23 </td>
+                          <td> 3 </td>
+                          <td> 1 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/winterstein/Eclipse-Markdown-Editor-Plugin" target="_blank"> winterstein/Eclipse-Markdown-Editor-Plugin </th>
+                          <td> 16 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/stratosphere/stratosphere" target="_blank"> stratosphere/stratosphere </th>
+                          <td> 50 </td>
+                          <td> 12 </td>
+                          <td> 16 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/JavaMoney/jsr354-api" target="_blank"> JavaMoney/jsr354-api </th>
+                          <td> 26 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/eirslett/frontend-maven-plugin" target="_blank"> eirslett/frontend-maven-plugin </th>
+                          <td> 128 </td>
+                          <td> 4 </td>
+                          <td> 3 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/kuujo/vertigo" target="_blank"> kuujo/vertigo </th>
+                          <td> 2 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/VCNC/haeinsa" target="_blank"> VCNC/haeinsa </th>
+                          <td> 19 </td>
+                          <td> 2 </td>
+                          <td> 4 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Adobe-Consulting-Services/acs-aem-commons" target="_blank"> Adobe-Consulting-Services/acs-aem-commons </th>
+                          <td> 605 </td>
+                          <td> 153 </td>
+                          <td> 57 </td>
+                          <td> 12 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/indeedeng/proctor" target="_blank"> indeedeng/proctor </th>
+                          <td> 65 </td>
+                          <td> 6 </td>
+                          <td> 19 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/iipc/openwayback" target="_blank"> iipc/openwayback </th>
+                          <td> 244 </td>
+                          <td> 129 </td>
+                          <td> 28 </td>
+                          <td> 13 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/torakiki/pdfsam" target="_blank"> torakiki/pdfsam </th>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/knowitall/reverb" target="_blank"> knowitall/reverb </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/dropwizard/dropwizard" target="_blank"> dropwizard/dropwizard </th>
+                          <td> 736 </td>
+                          <td> 66 </td>
+                          <td> 15 </td>
+                          <td> 49 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/YannBrrd/elasticsearch-entity-resolution" target="_blank"> YannBrrd/elasticsearch-entity-resolution </th>
+                          <td> 21 </td>
+                          <td> 5 </td>
+                          <td> 1 </td>
+                          <td> 1 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jcabi/jcabi-aspects" target="_blank"> jcabi/jcabi-aspects </th>
+                          <td> 58 </td>
+                          <td> 3 </td>
+                          <td> 9 </td>
+                          <td> 33 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/threerings/getdown" target="_blank"> threerings/getdown </th>
+                          <td> 22 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/aled/jsi" target="_blank"> aled/jsi </th>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/sanity/tahrir" target="_blank"> sanity/tahrir </th>
+                          <td> 20 </td>
+                          <td> 7 </td>
+                          <td> 13 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rest-driver/rest-driver" target="_blank"> rest-driver/rest-driver </th>
+                          <td> 43 </td>
+                          <td> 4 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/helun/Ektorp" target="_blank"> helun/Ektorp </th>
+                          <td> 86 </td>
+                          <td> 4 </td>
+                          <td> 7 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/pdfbox" target="_blank"> apache/pdfbox </th>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/xetorthio/jedis" target="_blank"> xetorthio/jedis </th>
+                          <td> 256 </td>
+                          <td> 40 </td>
+                          <td> 2 </td>
+                          <td> 114 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/netty/netty" target="_blank"> netty/netty </th>
+                          <td> 17 </td>
+                          <td> 17 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/google/j2objc" target="_blank"> google/j2objc </th>
+                          <td> 72 </td>
+                          <td> 19 </td>
+                          <td> 7 </td>
+                          <td> 13 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/storm" target="_blank"> apache/storm </th>
+                          <td> 2044 </td>
+                          <td> 1385 </td>
+                          <td> 330 </td>
+                          <td> 435 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/swagger-api/swagger-core" target="_blank"> swagger-api/swagger-core </th>
+                          <td> 773 </td>
+                          <td> 106 </td>
+                          <td> 116 </td>
+                          <td> 81 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/eclipse/che" target="_blank"> eclipse/che </th>
+                          <td> 1176 </td>
+                          <td> 524 </td>
+                          <td> 0 </td>
+                          <td> 652 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/scribejava/scribejava" target="_blank"> scribejava/scribejava </th>
+                          <td> 87 </td>
+                          <td> 6 </td>
+                          <td> 1 </td>
+                          <td> 33 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/neo4j/neo4j" target="_blank"> neo4j/neo4j </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/AsyncHttpClient/async-http-client" target="_blank"> AsyncHttpClient/async-http-client </th>
+                          <td> 27 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 14 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/weibocom/motan" target="_blank"> weibocom/motan </th>
+                          <td> 87 </td>
+                          <td> 11 </td>
+                          <td> 7 </td>
+                          <td> 7 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/java-native-access/jna" target="_blank"> java-native-access/jna </th>
+                          <td> 266 </td>
+                          <td> 23 </td>
+                          <td> 0 </td>
+                          <td> 25 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/NLPchina/ansj_seg" target="_blank"> NLPchina/ansj_seg </th>
+                          <td> 40 </td>
+                          <td> 7 </td>
+                          <td> 26 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/orientechnologies/orientdb" target="_blank"> orientechnologies/orientdb </th>
+                          <td> 2132 </td>
+                          <td> 1802 </td>
+                          <td> 344 </td>
+                          <td> 117 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/zeppelin" target="_blank"> apache/zeppelin </th>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Atmosphere/atmosphere" target="_blank"> Atmosphere/atmosphere </th>
+                          <td> 269 </td>
+                          <td> 49 </td>
+                          <td> 13 </td>
+                          <td> 178 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/b3log/solo" target="_blank"> b3log/solo </th>
+                          <td> 300 </td>
+                          <td> 20 </td>
+                          <td> 58 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/antlr/antlr4" target="_blank"> antlr/antlr4 </th>
+                          <td> 707 </td>
+                          <td> 203 </td>
+                          <td> 360 </td>
+                          <td> 60 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/jankotek/mapdb" target="_blank"> jankotek/mapdb </th>
+                          <td> 60 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 24 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/medcl/elasticsearch-analysis-ik" target="_blank"> medcl/elasticsearch-analysis-ik </th>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/apache/flink" target="_blank"> apache/flink </th>
+                          <td> 3 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                          <td> 2 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/codecentric/spring-boot-admin" target="_blank"> codecentric/spring-boot-admin </th>
+                          <td> 50 </td>
+                          <td> 15 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/Activiti/Activiti" target="_blank"> Activiti/Activiti </th>
+                          <td> 37 </td>
+                          <td> 26 </td>
+                          <td> 18 </td>
+                          <td> 4 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/twitter/distributedlog" target="_blank"> twitter/distributedlog </th>
+                          <td> 10 </td>
+                          <td> 1 </td>
+                          <td> 3 </td>
+                          <td> 10 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rest-assured/rest-assured" target="_blank"> rest-assured/rest-assured </th>
+                          <td> 35 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/FasterXML/jackson-jr" target="_blank"> FasterXML/jackson-jr </th>
+                          <td> 21 </td>
+                          <td> 16 </td>
+                          <td> 7 </td>
+                          <td> 6 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/rombert/desktop-maven-notifier" target="_blank"> rombert/desktop-maven-notifier </th>
+                          <td> 4 </td>
+                          <td> 1 </td>
+                          <td> 0 </td>
+                          <td> 0 </td>
+                        </tr>
+                        <tr>
+                          <td> <a href="http://github.com/mp911de/logstash-gelf" target="_blank"> mp911de/logstash-gelf </th>
+                          <td> 14 </td>
+                          <td> 8 </td>
+                          <td> 0 </td>
+                          <td> 2 </td>
+                        </tr>
+                      </tbody>
+                     </table>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            
+        </div>
+        </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>

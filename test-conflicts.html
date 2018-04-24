@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <p>Build and Test Conflicts in The Wild</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-navbar-nav">
+                <li class="active"><a href="main.html" title="">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+                        <li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+                    </ul>
+                </li>
+                <li><a href="sample.html" title="">Sample</a></li>
+            </ul>                           
+        </div>        
+      </div>
+    </nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Test Conflicts</li>
+                  </ol>                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h3>Test Conflict Cases</h3>
+                    <table class="build_conflicts">
+                      <thead>
+                        <tr>
+                          <th>ProjectName</th>
+                          <th>BuildID</th>
+                          <th>Parent One</th>
+                          <th>Parent Two</th>
+                          <th>Type</th>
+                          <th>File Name</th>
+                          <th>Test Case Name</th>
+                          <th>Test Case</th>
+                          <th>Same Methods</th>
+                          <th>Dependent Methods</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>  jwtk/jjwt </td>
+                          <td> <a href="https://travis-ci.org/jwtk/jjwt/builds/280062604" target="_blank" > 280062604 </a> </td>
+                          <td> <a href="https://travis-ci.org/jwtk/jjwt/builds/271260846" target="_blank" >271260846 </a> </td>
+                          <td> <a href="https://travis-ci.org/jwtk/jjwt/builds/280058560" target="_blank" >280058560 </a> </td>
+                          <td> Metric coverage </td>
+                          <td> - </td>
+                          <td> - </td>
+                          <td> - </td>
+                          <td> - </td>
+                          <td> -</td>
+                        </tr>
+                        <tr>
+                          <td>brettwooldridge/HikariCP </td>
+                          <td> <a href="https://travis-ci.org/brettwooldridge/HikariCP/builds/62022698" target="_blank" > 62022698 </a> </td>
+                          <td> <a href="https://travis-ci.org/brettwooldridge/HikariCP/builds/61160937" target="_blank" > 61160937 </a> </td>
+                          <td> <a href="https://travis-ci.org/brettwooldridge/HikariCP/builds/61885622" target="_blank" > 61885622 </a> </td>
+                          <td> Failed Test </td>
+                          <td> TestMetric </td>
+                          <td> testMetricUsage </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> square/wire </td>
+                          <td> <a href="https://travis-ci.org/square/wire/builds/81124823" target="_blank" > 81124823 </a> </td>
+                          <td> <a href="https://travis-ci.org/square/wire/builds/81124811" target="_blank" > 81124811 </a> </td>
+                          <td> <a href="https://travis-ci.org/square/wire/builds/81123648" target="_blank" > 81123648 </a> </td>
+                          <td> Failed Test </td>
+                          <td> SerializableTest </td>
+                          <td> decodeGolden </td>
+                          <td> updated (Right) </td>
+                          <td> false </td>
+                          <td> true - false</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> ObjectCommandsTest </td>
+                          <td> objectEncoding </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> AllKindOfValuesCommandsTest </td>
+                          <td> renameOldAndNewAreTheSame </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testClusterCountKeysInSlot </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testRedisClusterMaxRedirections </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testAskResponse </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testDiscoverNodesAutomatically </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrateToNewNode </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCloseable </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testThrowExceptionWithoutKey </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCalculateConnectionPerSlot </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrate </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testStableSlotWhenMigratingNodeOrImportingNodeIsNotSpecified </td>
+                          <td> new (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testRecalculateSlotsWhenMoved </td>
+                          <td> updated (Right) </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testJedisClusterRunsWithMultithreaded </td>
+                          <td> updated (Right) </td>
+                          <td> false </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/b557f7a2edb0dff5885fd237a713ae89c7d329b1" target="_blank" > b557f7a </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/2510e34c948a57ea973e067dedf3d4f5bf0a9f2a" target="_blank" > 2510e34 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/36430405" target="_blank" > 36430405 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testClusterCountKeysInSlot </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testDiscoverNodesAutomatically </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrateToNewNode </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCloseable </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCalculateConnectionPerSlot </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrate </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testStableSlotWhenMigratingNodeOrImportingNodeIsNotSpecified </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr> 
+                        <tr>
+                          <td>xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/7ff6061cbc4f1e2d9353046b38906f834705a8aa" target="_blank" > 7ff6061 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/8558487adf388a05da966c946eeb71934f58d7fc" target="_blank" > 8558487 </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/59431389" target="_blank" > 59431389 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testRecalculateSlotsWhenMoved </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testClusterCountKeysInSlot </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testRedisClusterMaxRedirections </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testAskResponse </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testIfPoolConfigAppliesToClusterPools </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testDiscoverNodesAutomatically </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrateToNewNode </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCloseable </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testCalculateConnectionPerSlot </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testMigrate </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testReturnConnectionOnJedisConnectionException </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testStableSlotWhenMigratingNodeOrImportingNodeIsNotSpecified </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testReturnConnectionOnRedirection </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> xetorthio/jedis </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/6cff58123292c1f1c18d1c7f6b7c3624ca0336bc" target="_blank" > 6cff581 </a> </td>
+                          <td> <a href="https://github.com/xetorthio/jedis/commit/129ed2f" target="_blank" > 129ed2f </a> </td>
+                          <td> <a href="https://travis-ci.org/xetorthio/jedis/builds/74499479" target="_blank" > 74499479 </a> </td>
+                          <td> Failed Test </td>
+                          <td> JedisClusterTest </td>
+                          <td> testRecalculateSlotsWhenMoved </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> true - true</td>
+                        </tr>
+                        <tr>
+                          <td> CloudSlang/cloud-slang </td>
+                          <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75814949" target="_blank" > 75814949 </a> </td>
+                          <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75428682" target="_blank" > 75428682 </a> </td>
+                          <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75811079" target="_blank" > 75811079 </a> </td>
+                          <td> Failed Test </td>
+                          <td> SlangImplTest </td>
+                          <td> testSubscribeOnAllEventsWithListener </td>
+                          <td> old </td>
+                          <td> true </td>
+                          <td> false - false</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-6 col-xs-12 fbox">
+                
+            </div>
+        </div>
+      </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>

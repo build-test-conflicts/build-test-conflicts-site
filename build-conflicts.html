@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <p>Build and Test Conflicts in The Wild</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-navbar-nav">
+                <li class="active"><a href="main.html" title="">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+                        <li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+                    </ul>
+                </li>
+                <li><a href="sample.html" title="">Sample</a></li>
+            </ul>                           
+        </div>        
+      </div>
+    </nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Build Conflicts</li>
+                  </ol>                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h3>Build Conflict Cases</h3>
+                    <table class="build_conflicts">
+                      <thead>
+                        <tr>
+                          <th> Project Name </th>
+                          <th> Build Conflict Type </th>
+                          <th> Broken Build ID </th>
+                          <th> Parent Build One </th>
+                          <th> Parent Build Two </th>
+                          <th> Clean MS </th>
+                          <th> Motivator </th>
+                        </tr>
+                      </thded>
+                      <tbody>
+                          <tr>
+                            <td> CorfuDB/CorfuDB </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/184169929" target="_blank" > 184169929 </a> </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/182952082" target="_blank" > 182952082 </a> </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/184053786" target="_blank" > 184053786 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> CloudSlang/cloud-slang </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/167353985" target="_blank" > 167353985 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/167337851" target="_blank" > 167337851 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/167031283" target="_blank" > 167031283 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> CloudSlang/cloud-slang </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/52708270" target="_blank" > 52708270 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/52624715" target="_blank" > 52624715 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/52621434" target="_blank" > 52621434 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> CloudSlang/cloud-slang </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/48623977" target="_blank" > 48623977 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/48452656" target="_blank" > 48452656 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/47642475" target="_blank" > 47642475 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> yegor256/s3auth </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/yegor256/s3auth/commit/b8bcb4a244f4048c84b744d2f7a88094ee419d5c" target="_blank" > b8bcb4a </a> </td>
+                            <td> <a href="https://github.com/yegor256/s3auth/commit/e79df12" target="_blank" > e79df12 </a> </td>
+                            <td> <a href="https://travis-ci.org/yegor256/s3auth/builds/27476470" target="_blank" > 27476470 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> pac4j/pac4j </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/e18dd85977935e24b7d4af8117c6ff00ad8bdfc3" target="_blank" > e18dd85 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/55e5eec" target="_blank" > 55e5eec </a> </td>
+                            <td> <a href="https://travis-ci.org/pac4j/pac4j/builds/111151558" target="_blank" > 111151558 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> pac4j/pac4j </th>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/827b7d823ab088eec1078040f9934a3af942b919" target="_blank" > 827b7d8 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/90b9686" target="_blank" >  90b9686 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/fd888ec" target="_blank" > fd888ec </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> pac4j/pac4j </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/673c636" target="_blank" > 673c636 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/9dadc5e" target="_blank" > 9dadc5e </a> </td>
+                            <td> <a href="https://travis-ci.org/pac4j/pac4j/builds/81744123" target="_blank" > 81744123 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                           <tr>
+                            <td> tumblr/jumblr </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/15597349" target="_blank" > 15597349 </a> </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/15448857" target="_blank" > 15448857 </a> </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/13923231" target="_blank" > 13923231 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/129572210" target="_blank" > 129572210 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/128966369" target="_blank" > 128966369 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/129571864" target="_blank" > 129571864 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> code4craft/webmagic </th>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/b7f3c4b" target="_blank" > b7f3c4b </a> </td>
+                            <td> <a href="https://travis-ci.org/code4craft/webmagic/builds/128642244" target="_blank" > 128642244 </a> </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/89c6e52" target="_blank" > 89c6e52 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> dianping/cat </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://github.com/dianping/cat/commit/aa94c03" target="_blank" > aa94c03 </a> </td>
+                            <td> <a href="https://github.com/dianping/cat/commit/d4a4458" target="_blank" > d4a4458 </a> </td>
+                            <td> <a href="https://github.com/dianping/cat/commit/a2f1373" target="_blank" > a2f1373 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/103065874" target="_blank" > 103065874 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/93966682" target="_blank" > 93966682 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/103064869" target="_blank" > 103064869 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/101107160" target="_blank" > 101107160 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/90696395" target="_blank" > 90696395 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/100866210" target="_blank" > 100866210 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> perwendel/spark </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://github.com/perwendel/spark/commit/3fd18a93e0ca4dbe1e50aefb88d084c7ab28bb72" target="_blank" > 3fd18a9 </a> </td>
+                            <td> <a href="https://github.com/perwendel/spark/commit/e5d84a2" target="_blank" > e5d84a2 </a> </td>
+                            <td> <a href="https://travis-ci.org/perwendel/spark/builds/181120662" target="_blank" > 181120662 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> jparsec/jparsec </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/jparsec/jparsec/commit/94af6d91f4af5d870752b4e426292b9a72424387" target="_blank" > 94af6d9 </a> </td>
+                            <td> <a href="https://github.com/jparsec/jparsec/commit/0ec7a65933f0fd3e135a88ccb73c69e372f8a69b" target="_blank" > 0ec7a65 </a> </td>
+                            <td> <a href="https://travis-ci.org/jparsec/jparsec/builds/44292456" target="_blank" > 44292456 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> spotify/netty-zmtp </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/spotify/netty-zmtp/builds/64970950" target="_blank" > 64970950 </a> </td>
+                            <td> <a href="https://travis-ci.org/spotify/netty-zmtp/builds/49887268" target="_blank" > 49887268 </a> </td>
+                            <td> <a href="https://travis-ci.org/spotify/netty-zmtp/builds/64969308" target="_blank" > 64969308 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> scribejava/scribejava </th>
+                            <td> "unimplementedMethod" </td>
+                            <td> <a href="https://github.com/scribejava/scribejava/commit/d4e97330d953c3291dcb84d47887e3087c41f650" target="_blank" > d4e9733 </a> </td>
+                            <td> <a href="https://travis-ci.org/scribejava/scribejava/builds/181964599" target="_blank" > 181964599 </a> </td>
+                            <td> <a href="https://github.com/scribejava/scribejava/commit/fa96ffb" target="_blank" > fa96ffb </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> damnhandy/Handy-URI-Templates </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/damnhandy/Handy-URI-Templates/commit/94ff14b239a7ffe16d156299144e2ad3dee6d404" target="_blank" > 94ff14b </a> </td>
+                            <td> <a href="https://travis-ci.org/damnhandy/Handy-URI-Templates/builds/3279767" target="_blank" > 3279767 </a> </td>
+                            <td> <a href="https://travis-ci.org/damnhandy/Handy-URI-Templates/builds/8985944" target="_blank" > 8985944 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> graphaware/neo4j-reco </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-reco/commit/22c943368d2bd2d94d48461988bdc8e9d2b9bc4e" target="_blank" > 22c9433 </a> </td>
+                            <td> <a href="https://travis-ci.org/graphaware/neo4j-reco/builds/67313466" target="_blank" > 67313466 </a> </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-reco/commit/bff457bfd6528e4a003936a554be55a3fbc9d375" target="_blank" > bff457b </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> square/javapoet </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/square/javapoet/builds/48276050" target="_blank" > 48276050 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/javapoet/builds/48264414" target="_blank" > 48264414 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/javapoet/builds/48249131" target="_blank" > 48249131 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> graphaware/neo4j-framework </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/35d3bb57ae10512b3e7e50a1da792ddc0ca16a01" target="_blank" > 35d3bb5 </a> </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/ddd9004b75c67cdb689ceb7ae6d2e513b52ae21f" target="_blank" > ddd9004 </a> </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/eb2b3c5" target="_blank" > eb2b3c5  </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> graphaware/neo4j-framework </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/3b230ef59c987473846560aaa5ce84b515e9cf32" target="_blank" > 3b230ef </a> </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/eefadc3" target="_blank" > eefadc3 </a> </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-framework/commit/b86f01e" target="_blank" > b86f01e </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> hdiv/hdiv </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://travis-ci.org/hdiv/hdiv/builds/126140680" target="_blank" > 126140680 </a> </td>
+                            <td> <a href="https://travis-ci.org/hdiv/hdiv/builds/126121157" target="_blank" > 126121157 </a> </td>
+                            <td> <a href="https://travis-ci.org/hdiv/hdiv/builds/126010037" target="_blank" > 126010037 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/ea412b153e8bdcdbe015a546a7ec98a28fd2f5cf" target="_blank" > ea412b1 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/176606678" target="_blank" > 176606678 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/176914535" target="_blank" > 176914535 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/ea412b153e8bdcdbe015a546a7ec98a28fd2f5cf" target="_blank" > ea412b1 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/176606678" target="_blank" > 176606678 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/176914535" target="_blank" > 176914535 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/7dffb9d" target="_blank" > 7dffb9d </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/178982350" target="_blank" > 178982350 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/178982403" target="_blank" > 178982403 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/b1087a6" target="_blank" > b1087a6 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/214119107" target="_blank" > 214119107 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/214497429" target="_blank" > 214497429 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/48f6587" target="_blank" > 48f6587 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/214851840" target="_blank" > 214851840 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/215034489" target="_blank" > 215034489 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> FasterXML/jackson-databind </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/FasterXML/jackson-databind/commit/f628ee7" target="_blank" > f628ee7 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/216921134" target="_blank" > 216921134 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-databind/builds/216949214" target="_blank" > 216949214 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> searchbox-io/Jest </th>
+                            <td> "incompatibleTypes" </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/66d15c823fe885bcfed920a747343cddf947dbc4" target="_blank" > 66d15c8 </a> </td>
+                            <td> <a href="https://travis-ci.org/searchbox-io/Jest/builds/7348623" target="_blank" > 7348623 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/d94a791" target="_blank" > d94a791 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> searchbox-io/Jest </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/66d15c823fe885bcfed920a747343cddf947dbc4" target="_blank" > 66d15c8 </a> </td>
+                            <td> <a href="https://travis-ci.org/searchbox-io/Jest/builds/7348623" target="_blank" > 7348623 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/d94a791" target="_blank" > d94a791 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> searchbox-io/Jest </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/72f2116" target="_blank" > 72f2116 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/d689657" target="_blank" > d689657 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/c67b585" target="_blank" > c67b585 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> tinkerpop/blueprints </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/tinkerpop/blueprints/commit/0f4cb9da6e7488b5e78ab4e541867b4353dcd042" target="_blank" > 0f4cb9d </a> </td>
+                            <td> <a href="https://travis-ci.org/tinkerpop/blueprints/builds/7251425" target="_blank" > 7251425 </a> </td>
+                            <td> <a href="https://travis-ci.org/tinkerpop/blueprints/builds/7275268" target="_blank" > 7275268 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> tinkerpop/blueprints </th>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" target="_blank" > 5a25e3a </a> </td>
+                            <td> <a href="https://travis-ci.org/tinkerpop/blueprints/builds/10006381" target="_blank" > 10006381 </a> </td>
+                            <td> <a href="https://travis-ci.org/tinkerpop/blueprints/builds/10033212" target="_blank" > 10033212 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> tananaev/traccar </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/traccar/traccar/commit/20f603076210073e122c720e21a3e8999478b11a" target="_blank" > 20f6030 </a> </td>
+                            <td> <a href="https://github.com/traccar/traccar/commit/e954e95" target="_blank" > 232041477 </a> </td>
+                            <td> <a href="https://travis-ci.org/tananaev/traccar/builds/145785480" target="_blank" > 145785480 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> DSpace/DSpace </th>
+                            <td> "incompatibleTypes" </td>
+                            <td> <a href="https://github.com/DSpace/DSpace/commit/049eb50e6e21a9febea75ed6eed20eb1a94c8e52" target="_blank" > 049eb50 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/18006409" target="_blank" > 18006409 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/17867814" target="_blank" > 17867814 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> DSpace/DSpace </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/DSpace/DSpace/commit/049eb50e6e21a9febea75ed6eed20eb1a94c8e52" target="_blank" > 049eb50 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/18006409" target="_blank" > 18006409 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/17867814" target="_blank" > 17867814 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> pac4j/pac4j </th>
+                            <td> "unimplementedMethodSuperType" </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/e18dd85977935e24b7d4af8117c6ff00ad8bdfc3" target="_blank" > e18dd85 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/55e5eec" target="_blank" > 55e5eec </a> </td>
+                            <td> <a href="https://travis-ci.org/pac4j/pac4j/builds/111151558" target="_blank" > 111151558 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> pac4j/pac4j </th>
+                            <td> "unimplementedMethodSuperType" </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/827b7d8" target="_blank" > 827b7d8 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/90b9686" target="_blank" > 90b9686 </a> </td>
+                            <td> <a href="https://github.com/pac4j/pac4j/commit/fd888ec" target="_blank" > fd888ec </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> tumblr/jumblr </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/15597349" target="_blank" > 15597349 </a> </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/15448857" target="_blank" > 15448857 </a> </td>
+                            <td> <a href="https://travis-ci.org/tumblr/jumblr/builds/13923231" target="_blank" > 13923231 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> OpenGrok/OpenGrok </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/oracle/opengrok/commit/52b73a5a457a2b5b3ee60a83317b6ff3d6d86f4b" target="_blank" > 52b73a5 </a> </td>
+                            <td> <a href="https://travis-ci.org/OpenGrok/OpenGrok/builds/34401647" target="_blank" > 34401647 </a> </td>
+                            <td> <a href="https://github.com/oracle/opengrok/commit/3436009" target="_blank" > 3436009 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> NLPchina/elasticsearch-sql </th>
+                            <td> "incompatibleTypes" </td>
+                            <td> <a href="https://travis-ci.org/NLPchina/elasticsearch-sql/builds/99402562" target="_blank" > 99402562 </a> </td>
+                            <td> <a href="https://travis-ci.org/NLPchina/elasticsearch-sql/builds/99401600" target="_blank" > 99401600 </a> </td>
+                            <td> <a href="https://travis-ci.org/NLPchina/elasticsearch-sql/builds/98781128" target="_blank" > 98781128 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> NLPchina/elasticsearch-sql </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/baa5c98a1b4f83bb732a9342cc4e7f76726e7584" target="_blank" > baa5c98 </a> </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/d4cb48d" target="_blank" > d4cb48d </a> </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/eb94cb3" target="_blank" > eb94cb3 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> NLPchina/elasticsearch-sql </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/d303781" target="_blank" > d303781 </a> </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/fa4bf66" target="_blank" > fa4bf66 </a> </td>
+                            <td> <a href="https://github.com/NLPchina/elasticsearch-sql/commit/f9d82d6" target="_blank" > f9d82d6 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> vavr-io/vavr </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/vavr-io/vavr/commit/e9f3307a151578482208551b40e3e5b75a50a05a" target="_blank" > e9f3307 </a> </td>
+                            <td> <a href="https://github.com/vavr-io/vavr/commit/cd64e5e" target="_blank" > cd64e5e </a> </td>
+                            <td> <a href="https://travis-ci.org/vavr-io/vavr/builds/73460929" target="_blank" > 73460929 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> square/wire </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/square/wire/builds/157352214" target="_blank" > 157352214 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/wire/builds/151088900" target="_blank" > 151088900 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/wire/builds/149644087" target="_blank" > 149644087 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> square/okio </th>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/square/okio/builds/53590047" target="_blank" > 53590047 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/okio/builds/53512697" target="_blank" > 53512697 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/okio/builds/51230329" target="_blank" > 51230329 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/120089896" target="_blank" > 120089896 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/119843675" target="_blank" > 119843675 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/119841177" target="_blank" > 119841177 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/68942596" target="_blank" > 68942596 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/68893274" target="_blank" > 68893274 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/68518956" target="_blank" > 68518956 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/32894479" target="_blank" > 32894479 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/32644663" target="_blank" > 32644663 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/32870444" target="_blank" > 32870444 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/28099524" target="_blank" > 28099524 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/25635609" target="_blank" > 25635609 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/27786127" target="_blank" > 27786127 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/26703313" target="_blank" > 26703313 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/26604028" target="_blank" > 26604028 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/26689825" target="_blank" > 26689825 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/25098248" target="_blank" > 25098248 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/24127367" target="_blank" > 24127367 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/24926864" target="_blank" > 24926864 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> querydsl/querydsl </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/querydsl/querydsl/commit/2f7a6c8f3f62e2eaab437cc3f681a5530d2428e8" target="_blank" > 2f7a6c8 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/43024946" target="_blank" > 43024946 </a> </td>
+                            <td> <a href="https://travis-ci.org/querydsl/querydsl/builds/44344574" target="_blank" > 44344574 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> sanity/quickml </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/53571613" target="_blank" > 53571613 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/53552160" target="_blank" > 53552160 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/53495563" target="_blank" > 53495563 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> sanity/quickml </th>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25549352" target="_blank" > 25549352 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25544853" target="_blank" > 25544853 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25548698" target="_blank" > 25548698 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> sanity/quickml </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/sanity/quickml/commit/fa520cc95b37834213bc81520247af296564a01b" target="_blank" > fa520cc </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/32365230" target="_blank" > 32365230 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/32339061" target="_blank" > 32339061 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> google/truth </th>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/google/truth/builds/25020324" target="_blank" > 25020324 </a> </td>
+                            <td> <a href="https://travis-ci.org/google/truth/builds/25016734" target="_blank" > 25016734 </a> </td>
+                            <td> <a href="https://travis-ci.org/google/truth/builds/25016452" target="_blank" > 25016452 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/144600040" target="_blank" > 144600040 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/144584703" target="_blank" > 144584703 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/144580240" target="_blank" > 144580240 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/70541417" target="_blank" > 70541417 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/69694110" target="_blank" > 69694110 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/70541409" target="_blank" > 70541409 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/f19c84b314e7808f1a01a9bcf5f2e8d13ff02ede" target="_blank" > f19c84b </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66828290" target="_blank" > 66828290 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/67548498" target="_blank" > 67548498 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/2ed25e7" target="_blank" > 2ed25e7 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66828086" target="_blank" > 66828086 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/67551312" target="_blank" > 67551312 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/7431027" target="_blank" > 7431027 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/94195206" target="_blank" > 94195206 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/93340876" target="_blank" > 93340876 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/9bedc0d" target="_blank" > 9bedc0d </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/94448188" target="_blank" > 94448188 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/95393602" target="_blank" > 95393602 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/7386ca6" target="_blank" > 7386ca6 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66039328" target="_blank" > 66039328 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66375528" target="_blank" > 66375528 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/aa9d916" target="_blank" > aa9d916 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66851336" target="_blank" > 66851336 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/67551575" target="_blank" > 67551575 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/72522c2" target="_blank" > 72522c2 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/68517283" target="_blank" > 68517283 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/68544192" target="_blank" > 68544192 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/4a9aa89" target="_blank" > 4a9aa89 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/91450994" target="_blank" > 91450994 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/91448081" target="_blank" > 91448081 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/e570a72" target="_blank" > e570a72 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/95643827" target="_blank" > 95643827 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/95849340" target="_blank" > 95849340 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/0f0eaad" target="_blank" > 0f0eaad </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/61156227" target="_blank" > 61156227 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/61168500" target="_blank" > 61168500 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/d29da31" target="_blank" > d29da31 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/61504578" target="_blank" > 61504578 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/61743199" target="_blank" > 61743199 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/8e4f23b" target="_blank" > 8e4f23b </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66038248" target="_blank" > 66038248 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/66380170" target="_blank" > 66380170 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/b14cd9b" target="_blank" > b14cd9b </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/68544200" target="_blank" > 68544200 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/68546467" target="_blank" > 68546467 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/fc94ea7" target="_blank" > fc94ea7 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/80879915" target="_blank" > 80879915 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/80895179" target="_blank" > 80895179 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/830c3e5" target="_blank" > 830c3e5 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/90114055" target="_blank" > 90114055 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/90354703" target="_blank" > 90354703 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "projectRules" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/b66be85" target="_blank" > b66be85 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/95528461" target="_blank" > 95528461 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/95854619" target="_blank" > 95854619 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> datastax/java-driver </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/datastax/java-driver/commit/4692f3d" target="_blank" > 4692f3d </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/201229321" target="_blank" > 201229321 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/202731595" target="_blank" > 202731595 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> protostuff/protostuff </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/protostuff/protostuff/commit/3a8b1a1b3e59d464650e93c860456bd1a8e7d63b" target="_blank" > 3a8b1a1 </a> </td>
+                            <td> <a href="https://github.com/protostuff/protostuff/commit/ccc1f0d" target="_blank" > ccc1f0d </a> </td>
+                            <td> <a href="https://travis-ci.org/protostuff/protostuff/builds/54938495" target="_blank" > 54938495 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> code4craft/webmagic </th>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/a2fba8caa2684e3b2915c8c73577f5db2f9b7c01" target="_blank" > a2fba8c </a> </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/4a4b570" target="_blank" > 4a4b570 </a> </td>
+                            <td> <a href="https://travis-ci.org/code4craft/webmagic/builds/11121696" target="_blank" > 11121696 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> code4craft/webmagic </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/fe95a68" target="_blank" > fe95a68 </a> </td>
+                            <td> <a href="https://travis-ci.org/code4craft/webmagic/builds/216587617" target="_blank" > 216587617 </a> </td>
+                            <td> <a href="https://github.com/code4craft/webmagic/commit/395396c" target="_blank" > 395396c </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> square/okhttp </th>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/square/okhttp/builds/19399475" target="_blank" > 19399475 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/okhttp/builds/19399433" target="_blank" > 19399433 </a> </td>
+                            <td> <a href="https://travis-ci.org/square/okhttp/builds/19398501" target="_blank" > 19398501 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> graphaware/neo4j-timetree </th>
+                            <td> "incompatibleTypes" </td>
+                            <td> <a href="https://github.com/graphaware/neo4j-timetree/commit/66d2770ccc25878641f328fcb8a9b307eaefbafd" target="_blank" > 66d2770 </a> </td>
+                            <td> <a href="https://travis-ci.org/graphaware/neo4j-timetree/builds/31937574" target="_blank" > 31937574 </a> </td>
+                            <td> <a href="https://travis-ci.org/graphaware/neo4j-timetree/builds/31697048" target="_blank" > 31697048 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/113479426" target="_blank" > 113479426 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/111166422" target="_blank" > 111166422 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/112943276" target="_blank" > 112943276 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unimplementedMethodSuperType" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/113479426" target="_blank" > 113479426 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/111166422" target="_blank" > 111166422 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/112943276" target="_blank" > 112943276 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/109369904" target="_blank" > 109369904 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/101107434" target="_blank" > 101107434 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/107247494" target="_blank" > 107247494 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/101107160" target="_blank" > 101107160 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/90696395" target="_blank" > 90696395 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/100866210" target="_blank" > 100866210 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/81066148" target="_blank" > 81066148 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/80620738" target="_blank" > 80620738 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/80621067" target="_blank" > 80621067 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/81066148" target="_blank" > 81066148 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/80620738" target="_blank" > 80620738 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/80621067" target="_blank" > 80621067 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/54693559" target="_blank" > 54693559 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/51374440" target="_blank" > 51374440 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/54604897" target="_blank" > 54604897 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/54693559" target="_blank" > 54693559 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/51374440" target="_blank" > 51374440 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/54604897" target="_blank" > 54604897 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41598073" target="_blank" > 41598073 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/39266122" target="_blank" > 39266122 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41344362" target="_blank" > 41344362 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/30971217" target="_blank" > 30971217 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/26749094" target="_blank" > 26749094 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/30728790" target="_blank" > 30728790 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> ontop/ontop </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/26120796" target="_blank" > 26120796 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/26119005" target="_blank" > 26119005 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/25772946" target="_blank" > 25772946 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> swagger-api/swagger-core </th>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65086450" target="_blank" > 65086450 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/64955895" target="_blank" > 64955895 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65083676" target="_blank" > 65083676 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> swagger-api/swagger-core </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/swagger-api/swagger-core/commit/e5ef9d86e50fb90e1150cb72fd15f874b2165d91" target="_blank" > e5ef9d8 </a> </td>
+                            <td> <a href="https://github.com/swagger-api/swagger-core/commit/4698800" target="_blank" > 4698800 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/155041327" target="_blank" > 155041327 </a> </td>
+                            <td> true </td>
+                            <td> contributor </td>
+                          </tr>
+                          <tr>
+                            <td> b3log/solo </th>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/b3log/solo/commit/bc6fa3b408f52c44dd706b8dbcda407d724ea67b" target="_blank" > bc6fa3b </a> </td>
+                            <td> <a href="https://github.com/b3log/solo/commit/c55d208" target="_blank" > c55d208 </a> </td>
+                            <td> <a href="https://travis-ci.org/b3log/solo/builds/134652682" target="_blank" > 134652682 </a> </td>
+                            <td> false </td>
+                            <td> contributor </td>
+                          </tr>
+                      </tbody>
+                     </table>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            
+        </div>
+        </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
