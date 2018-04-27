@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script>
+        $(function(){
+            $("#includedContent").load("content.html");
+        });
+    </script>
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+		  <div class="container">
+		      <div class="row">
+		          <div class="col-sm-6">
+		              <p>Build and Test Conflicts in The Wild</p>
+		          </div>
+		      </div>
+		  </div>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class="container">
+			<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+		    	<ul class="nav navbar-nav main-navbar-nav">
+		        	<li class="active"><a href="main.html" title="">HOME</a></li>
+		        	<li class="dropdown">
+		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+		            	<ul class="dropdown-menu">
+		                	<li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+		                	<li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+		            	</ul>
+		        	</li>
+		        	<li><a href="sample.html" title="">Sample</a></li>
+		    	</ul>                           
+			</div>        
+			</div>
+		</nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                   <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Checking Build Conflicts</li>
+                  </ol>                  
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h2>Checking Build Conflicts</h2>
+                  <div class="abstract"> 
+                    <i>Errored</i> builds might have many causes. In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions involving in a merge scenario. We identify two categories of build conflicts: static semantic and other static analysis conflicts. Following, we explain the causes associated to each category.
+                  </div>
+				    </div>
+
+          <div class="study">
+            <h3>Static Semantic Conflicts</h3>
+            <p> This category of problems is related to source code syntactically correct but semantically wrong.
+					  
+            <div class="conflict">
+              <h4> Unavailable Symbol </h4>
+              <p> Such cause happens when a reference for a symbol no longer available in the project is introduced by one contribution. For example, consider <a href="https://github.com/datastax/java-driver" title="" target="_blank">Java Driver</a> project that presents a build conflict caused by <i>Unavailable Symbol</i> (missing method). Looking at the <a href="https://travis-ci.org/datastax/java-driver/builds/144600040" title="" target="_blank">build process</a> (see log report bellow), it is possible to see a reference for a missing symbol. In this case, the <i>Activator</i> class (main class) requires the use of the missing method <i>builderWithHighestTrackableLatencyMillis</i> provided by the <i>PerHostPercentileTracker</i> class (secondary class).
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/datastax/driver/osgi/impl/<span style="color: red;">Activator</span>.java:[77,89] <br>
+                  cannot find symbol <br>
+                  [ERROR] symbol: method <span style="color: red;">builderWithHighestTrackableLatencyMillis</span>(int)<br>
+                  [ERROR] location: class com.datastax.driver.core.<span style="color: red;">PerHostPercentileTracker</span> </p>
+
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in three steps: </p>
+                <ul>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or removing the <i>missing symbol</i> using the <i>Secondary</i> class <b>base-parent-diff</b>;</li>
+                  <li> <b>Step 2:</b> Verification of a new reference for the <i>missing symbol</i> in the <i>Main</i> class diff in the other  <b>base-parent-diff</b>;</li>
+                  <li> <b>Step 3:</b> If all these steps are successfully performed, we identify a build conflict.</li>
+                </ul>
+            </div>
+
+            <div class="conflict">
+						  <h4> Uniplemented Method </h4>
+						  <p> This cause happens when a class does not present an implementation of a method defined in the related interface (or in some cases extends by inheritance). For instance, in <a href="https://github.com/scribejava/scribejava/" title="" target="_blank">Scribe Java</a> project, the <a href="https://github.com/scribejava/scribejava/commit/d4e9733" title="" target="_blank">build process</a> breaks due to the unimplemented method (see log report bellow). In this case, the method <i>executeAsync</i> (unimplemented method) is introduced in the interface <i>HttpClient</i> (secondary class). However, the implementing class, <i>OkHttpHttpClient</i> (main class) does not present the associated new implementation.
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/scribejava/[...]/<span style="color: red;">OkHttpHttpClient</span>.java:[22,8] is not abstract <br>
+                  and does not override abstract method <span style="color: red;">executeAsync</span> <br>
+                  in com.github.scribejava.core.model.<span style="color: red;">HttpClient</span> </p>
+
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in four steps: </p>
+                <ul>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or introducing the <i>unimplemented method</i> in the <i>Secondary class</i> <b>base-parent-diff</b>;</li>
+                  <li> <b>Step 2:</b> In the other parent, we perform two checks. The first verifies whether the <i>unimplemented method</i> is added or updated in the <i>Secondary class</i> <b>base-parent-diff</b> (ensuring the change in the <i>Secondary class</i> is preserved in the merge result); </li>
+                  <li> <b>Step 3:</b> The second check is performed on the <i>Main class</i> <b>parent-merge-diff</b> to ensure the <i>unimplemented method</i> is not added/updated in the <i>Main class</i>; </li>
+                  <li> <b>Step 4:</b> If both checks can be done, we conclude a build conflict happens.</li>
+                </ul>
+					  </div>
+
+            <div class="conflict">
+              <h4> Incompatible Method Signature </h4>
+              <p> TDifferent of Unavailable Symbol Method, in this case the required method is available but the list of parameters or the types expected are different of the received. For instance, in <a href="https://github.com/ontop/ontop" title="" target="_blank"> Ontop Slang </a> project, the <a href="https://travis-ci.org/ontop/ontop/builds/113479426" title="" target="_blank"> build process </a> breaks because the constructor (<i>incompatible method</i>) of <i>Quest (secondary class)</i> could not be used in the request of <i>SQLGenerator (main class)</i> since the parameters list differ in length see log report bellow.
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/ontop/[...]/<span style="color: red;">Quest</span>.java:[596,58] no suitable constructor <br>
+                  found for <span style="color: red;">SQLGenerator</span> construct is not applicable <br>
+                  (actual and formal argument lists differ in length) </p>
+
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in two steps: </p>
+                <ul>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating/removing the <i>incompatible method</i> in the <i>Secondary class</i>. Since many methods can have the same name, differing of each other in the signature, we check the number of methods with the name of the <i>incompatible method</i> available in the <i>Secondary class</i> of each parent;</li>
+                  <li> <b>Step 2:</b> If each parent presents a different number of methods or parameter list size, we assume the <i>incompatible method</i> was available before the merge integration. Thus, one of the parents removed the method leading the build to break due to conflicting contribution.</li>
+                </ul>
+            </div>
+
+            <div class="conflict">
+              <h4> Duplicated Declaration </h4>
+              <p> Different of <i>Incompatible Methods Signature</i>, in this case, two elements with the same identifier are declared in a class (variables, methods). Thus, when a requestion is done for such element, the program cannot decide which one to use. <a href="https://github.com/CloudSlang/cloud-slang" title="" target="_blank">Blue Print</a> project has a <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" title="" target="_blank"> build process </a>that breaks because of two declarations of method <i>testRemoveNonExistentVertexCausesException (duplicated method)</i> in the <i>GraphTestSuite (main class)</i>.
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/blueprint/[...]/<span style="color: red;">GraphTestSuite</span>.java:[393,16] error: <br>
+                  method <span style="color: red;">testRemoveNonExistentVertexCausesException</span>() <br>
+                  is already defined in class <span style="color: red;">GraphTestSuite</span> </p>
+
+                <p> To verify if the conflict is caused by the parents contributions or integrator changes, we adopt the following approach done in two steps: </p>
+                <ul>
+                  <li> <b>Step 1:</b> Checking of the introduction of the duplicated method in <i>Main class</i> <b>base-parent-diff</b> of both parents;</li>
+                  <li> <b>Step 2:</b> If such check is done, we conclude the build conflict is the responsible for broken build. </li>
+                </ul>
+            </div>
+
+            <div class="conflict">
+              <h4> Incompatible Types </h4>
+              <p> This problem happens when an unexpected type is received or sent at an operation. For example, in <a href="https://github.com/graphaware/neo4j-timetree" title="" target="_blank">Neo4J TimeTree</a> project, the <a href="https://github.com/graphaware/neo4j-timetree/commit/66d2770" title="" target="_blank">build process</a> fails because of a parameter of type <i>long</i> is sent instead of <i>TimeInstant</i> in <i>getInstant</i> method of <i>TimeTree</i> class (see log report bellow). 
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/neo4j-timetree/[...]/<span style="color: red;">SingleTimeTreeTest</span>.java:[641,32] error: <br>
+                  incompatible types <span style="color: red;">long</span> cannot be converted to <span style="color: red;">TimeInstant</span> </p>
+
+                <p> To define the motivator of the conflict, we seek for merge conflicts and changes done after the merge integration. Thus, if none of such actions happen, we assume the contributor changes motivates the conflict. Otherwise, we perform a manual analysis to determine the motivator.
+            </div>
+                  
+        </div>
+        <div class="study">
+            <h3>Other Static Analysis Conflicts</h3>
+            <p>Static analysis are done after the compilation process. It means the source code is compilable, but additional analysis after the compilation problems may fail leading the build process to break. The common analysis done involve checking of styles/convetions of the projects, duplication of code. </p>
+            <div class="conflict">
+              <h4> Project Rules </h4>
+              <p> This problem happens when the source code is syntactically and semantically correct, but it does not follow the conventions/guidelines defined to the project. For instance, in the <a href="https://github.com/datastax/java-driver" title="" target="_blank">Java Driver</a> project, a file does not have the <i>expected license header</i> resulting in a broken <a href="https://github.com/datastax/java-driver/commit/f19c84b" title="" target="_blank">build process</a> (see log report bellow). 
+
+                <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> BUILD FAILURE: </span> <br>
+                  [ERROR] Failed to execute goal com.mycila:license-maven-plugin:2.8:check (check-license) <br>
+                  Some files do not have the <span style="color: red;">expected license header</span> </p>
+
+                <p> Like the approach adopted for incompatible types, if none merge conflicts or changes after the merge integration happens, we consider such case is motivated by the contributor changes. Otherwise, we perform a manual analysis to confirm the conflict.
+            </div>
+        </div>
+
+    </main>
+    <footer>
+      <div class="container">
+        <div class="cen">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+      </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>

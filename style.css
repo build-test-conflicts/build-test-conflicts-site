@@ -134,6 +134,10 @@ table {
 	justify-content: center
 }
 
+.conflict{
+	padding-top: 1cm
+}
+
 /* News */
 .home-area {padding-bottom: 50px;}
 .home_content h2 {position: relative;font-size: 17px;font-weight: 600;padding-bottom: 20px;color: #404040;margin-bottom: 30px;}
