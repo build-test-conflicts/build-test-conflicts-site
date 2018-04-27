@@ -66,6 +66,7 @@
                   <h2>Checking Build Conflicts</h2>
                   <div class="abstract"> 
                     <i>Errored</i> builds might have many causes. In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions involving in a merge scenario. We identify two categories of build conflicts: static semantic and other static analysis conflicts. Following, we explain the causes associated to each category.
+                    <p>*Some build process links redirect to GitHub repository commits aiming to hide the authors identity. </p>
                   </div>
 				    </div>
 
@@ -113,7 +114,7 @@
 
             <div class="conflict">
               <h4> Incompatible Method Signature </h4>
-              <p> TDifferent of Unavailable Symbol Method, in this case the required method is available but the list of parameters or the types expected are different of the received. For instance, in <a href="https://github.com/ontop/ontop" title="" target="_blank"> Ontop Slang </a> project, the <a href="https://travis-ci.org/ontop/ontop/builds/113479426" title="" target="_blank"> build process </a> breaks because the constructor (<i>incompatible method</i>) of <i>Quest (secondary class)</i> could not be used in the request of <i>SQLGenerator (main class)</i> since the parameters list differ in length see log report bellow.
+              <p> TDifferent of Unavailable Symbol Method, in this case the required method is available but the list of parameters or the types expected are different of the received. For instance, in <a href="https://github.com/ontop/ontop" title="" target="_blank"> Ontop </a> project, the <a href="https://travis-ci.org/ontop/ontop/builds/113479426" title="" target="_blank"> build process </a> breaks because the constructor (<i>incompatible method</i>) of <i>Quest (secondary class)</i> could not be used in the request of <i>SQLGenerator (main class)</i> since the parameters list differ in length see log report bellow.
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
@@ -130,7 +131,7 @@
 
             <div class="conflict">
               <h4> Duplicated Declaration </h4>
-              <p> Different of <i>Incompatible Methods Signature</i>, in this case, two elements with the same identifier are declared in a class (variables, methods). Thus, when a requestion is done for such element, the program cannot decide which one to use. <a href="https://github.com/CloudSlang/cloud-slang" title="" target="_blank">Blue Print</a> project has a <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" title="" target="_blank"> build process </a>that breaks because of two declarations of method <i>testRemoveNonExistentVertexCausesException (duplicated method)</i> in the <i>GraphTestSuite (main class)</i>.
+              <p> Different of <i>Incompatible Methods Signature</i>, in this case, two elements with the same identifier are declared in a class (variables, methods). Thus, when a requestion is done for such element, the program cannot decide which one to use. <a href="https://github.com/tinkerpop/blueprints" title="" target="_blank">Blueprints</a> project has a <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" title="" target="_blank"> build process </a>that breaks because of two declarations of method <i>testRemoveNonExistentVertexCausesException (duplicated method)</i> in the <i>GraphTestSuite (main class)</i>.
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
