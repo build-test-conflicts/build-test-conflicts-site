@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <p>Build and Test Conflicts in The Wild</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-navbar-nav">
+                <li class="active"><a href="main.html" title="">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+                        <li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+                    </ul>
+                </li>
+                <li><a href="sample.html" title="">Sample</a></li>
+            </ul>                           
+        </div>        
+      </div>
+    </nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Broken Builds by Integrator</li>
+                  </ol>                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h3>Broken Builds Cases</h3>
+                    <table class="build_conflicts">
+                      <thead>
+                        <tr>
+                          <th> Project Name </th>
+                          <th> Build Conflict Type </th>
+                          <th> Broken Build ID </th>
+                          <th> Parent Build One </th>
+                          <th> Parent Build Two </th>
+                          <th> Fix Build </th>
+                          <th> Resolution Pattern </th>
+                          <th> Same Author </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+						  <tr>
+                            <td> CorfuDB/CorfuDB </td>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/147270257" target="_blank" > 147270257 </a> </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/146731270" target="_blank" > 146731270 </a> </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/147268879" target="_blank" > 147268879 </a> </td>
+                            <td> <a href="https://travis-ci.org/CorfuDB/CorfuDB/builds/147282906" target="_blank" > 147282906 </a> </td>
+                            <td> Request update </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> CloudSlang/cloud-slang </td>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/108796563" target="_blank" > 108796563 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/108795960" target="_blank" > 108795960 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/108776026" target="_blank" > 108776026 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/158196252" target="_blank" > 158196252 </a> </td>
+                            <td> Method removal in interface </td>
+                            <td> true </td>
+                          </tr>
+			              <tr>
+                            <td> CloudSlang/cloud-slang </td>
+                            <td> "unavailableSymbolVariable" </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75952745" target="_blank" > 75952745 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75948732" target="_blank" > 75948732 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75923848" target="_blank" > 75923848 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudSlang/cloud-slang/builds/75953353" target="_blank" > 75953353 </a> </td>
+                            <td> Request symbol update </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> javaparser/javaparser </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://github.com/javaparser/javaparser/commit/89c83f2" target="_blank" > 89c83f2 </a> </td>
+                            <td> <a href="https://github.com/javaparser/javaparser/commit/4b45bdb" target="_blank" > 4b45bdb </a> </td>
+                            <td> <a href="https://travis-ci.org/javaparser/javaparser/builds/232077865" target="_blank" > 232077865 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> CloudifySource/cloudify </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://travis-ci.org/CloudifySource/cloudify/builds/14913281" target="_blank" > 14913281 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudifySource/cloudify/builds/14912159" target="_blank" > 14912159 </a> </td>
+                            <td> <a href="https://travis-ci.org/CloudifySource/cloudify/builds/14913175" target="_blank" > 14913175 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> searchbox-io/Jest </td>
+                            <td> "unimplementedMethod" </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/72f2116" target="_blank" > 72f2116 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/d689657" target="_blank" > d689657 </a> </td>
+                            <td> <a href="https://github.com/searchbox-io/Jest/commit/c67b585" target="_blank" > c67b585 </a> </td>
+                            <td> <a href="https://travis-ci.org/searchbox-io/Jest/builds/8269772" target="_blank" > 8269772 </a> </td>
+                            <td> Method signature update in interface</td>
+                            <td> true </td>
+                          </tr>
+						   <tr>
+                            <td> FasterXML/jackson-core </td>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-core/builds/49277833" target="_blank" > 49277833 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-core/builds/49277342" target="_blank" > 49277342 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-core/builds/49277694" target="_blank" > 49277694 </a> </td>
+                            <td> <a href="https://travis-ci.org/FasterXML/jackson-core/builds/49277953" target="_blank" > 49277953 </a> </td>
+                            <td> Duplicated element removal </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> tananaev/traccar </td>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/traccar/traccar/commit/516ef6a" target="_blank" > 516ef6a </a> </td>
+                            <td> <a href="https://github.com/traccar/traccar/commit/5bf82ef" target="_blank" > 5bf82ef </a> </td>
+                            <td> <a href="https://travis-ci.org/tananaev/traccar/builds/127767037" target="_blank" > 127767037 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> tananaev/traccar </td>
+                            <td> "unavailableSymbolMethod" </td>
+                            <td> <a href="https://github.com/traccar/traccar/commit/ca06e8d" target="_blank" > ca06e8d </a> </td>
+                            <td> <a href="https://travis-ci.org/tananaev/traccar/builds/93468836" target="_blank" > 93468836 </a> </td>
+                            <td> <a href="https://travis-ci.org/tananaev/traccar/builds/93456576" target="_blank" > 93456576 </a> </td>
+                            <td> <a href="https://travis-ci.org/tananaev/traccar/builds/93469621" target="_blank" > 93469621 </a> </td>
+                            <td> Symbol reintroduction </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> DSpace/DSpace </td>
+                            <td> "incompatibleMethodSignature" </td>
+                            <td> <a href="https://github.com/DSpace/DSpace/commit/049eb50" target="_blank" > 049eb50 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/18006409" target="_blank" > 18006409 </a> </td>
+                            <td> <a href="https://travis-ci.org/DSpace/DSpace/builds/17867814" target="_blank" > 17867814 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> l0rdn1kk0n/wicket-bootstrap </td>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/33711220" target="_blank" > 33711220 </a> </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/32203441" target="_blank" > 32203441 </a> </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/33700856" target="_blank" > 33700856 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> l0rdn1kk0n/wicket-bootstrap </td>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/11775898" target="_blank" > 11775898 </a> </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/11766897" target="_blank" > 11766897 </a> </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/11753209" target="_blank" > 11753209 </a> </td>
+                            <td> <a href="https://travis-ci.org/l0rdn1kk0n/wicket-bootstrap/builds/11776238" target="_blank" > 11776238 </a> </td>
+                            <td> Request symbol removal </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> oxo42/stateless4j </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://github.com/oxo42/stateless4j/commit/26ac62c" target="_blank" > 26ac62c </a> </td>
+                            <td> <a href="https://github.com/oxo42/stateless4j/commit/7e636bd" target="_blank" > 7e636bd </a> </td>
+                            <td> <a href="https://github.com/oxo42/stateless4j/commit/6ba3bc5" target="_blank" > 6ba3bc5 </a> </td>
+                            <td> <a href="https://travis-ci.org/oxo42/stateless4j/builds/29132542" target="_blank" > 29132542 </a> </td>
+                            <td> Syntax update </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> sanity/quickml </td>
+                            <td> "unimplementedMethod" </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/53078374" target="_blank" > 53078374 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/51295424" target="_blank" > 51295424 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/52786842" target="_blank" > 52786842 </a> </td>
+                            <td> false </td>
+                            <td> integrator </td>
+                          </tr>
+						  <tr>
+                            <td> sanity/quickml </td>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25549352" target="_blank" > 25549352 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25544853" target="_blank" > 25544853 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25548698" target="_blank" > 25548698 </a> </td>
+                            <td> <a href="https://travis-ci.org/sanity/quickml/builds/25549358" target="_blank" > 25549358 </a> </td>
+                            <td> Duplicated element removal </td>
+                            <td> true </td>
+                          </tr>
+						   <tr>
+                            <td> timmolter/XChange </td>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/5a0af40" target="_blank" > 5a0af40 </a> </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/66b2439 " target="_blank" > 66b2439 </a> </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/bb97095" target="_blank" > bb97095 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> timmolter/XChange </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/c786aec" target="_blank" > c786aec </a> </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/d8ca040" target="_blank" > d8ca040 </a> </td>
+                            <td> <a href="https://github.com/knowm/XChange/commit/56315ff" target="_blank" > 56315ff </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> datastax/java-driver </td>
+                            <td> "unimplementedMethod" </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/100402057" target="_blank" > 100402057 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/100359289" target="_blank" > 100359289 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/100316921" target="_blank" > 100316921 </a> </td>
+                            <td> <a href="https://travis-ci.org/datastax/java-driver/builds/100402991" target="_blank" > 100402991 </a> </td>
+                            <td> Method implementation </td>
+                            <td> false </td>
+                          </tr>
+						  <tr>
+                            <td> ontop/ontop </td>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/90071710" target="_blank" > 90071710 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/89465997" target="_blank" > 89465997 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/89465245" target="_blank" > 89465245 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/90072010" target="_blank" > 90072010 </a> </td>
+                            <td> Request symbol removal </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> ontop/ontop </td>
+                            <td> "unimplementedMethodSuperType" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/50878615" target="_blank" > 50878615 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/50833440" target="_blank" > 50833440 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/43860836" target="_blank" > 43860836 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> ontop/ontop </td>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/50878615" target="_blank" > 50878615 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/50833440" target="_blank" > 50833440 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/43860836" target="_blank" > 43860836 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> ontop/ontop </td>
+                            <td> "duplicatedDeclaration" </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41367169" target="_blank" > 41367169 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41347143" target="_blank" > 41347143 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41344362" target="_blank" > 41344362 </a> </td>
+                            <td> <a href="https://travis-ci.org/ontop/ontop/builds/41344362" target="_blank" > 41344362 </a> </td>
+                            <td> Duplicated element removal </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> Adobe-Consulting-Services/acs-aem-commons </td>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/4d25d30" target="_blank" > 4d25d30 </a> </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/3ee9cdd" target="_blank" > 3ee9cdd </a> </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/0d17327" target="_blank" > 0d17327 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> Adobe-Consulting-Services/acs-aem-commons </td>
+                            <td> "unavailableSymbolFileSpecialCase" </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/ec49f07" target="_blank" > ec49f07 </a> </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/d62f03b" target="_blank" > d62f03b </a> </td>
+                            <td> <a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/commit/5f03472" target="_blank" > 5f03472 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+						  <tr>
+                            <td> swagger-api/swagger-core </td>
+                            <td> "unavailableSymbolFile" </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65300089" target="_blank" > 65300089 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65086520" target="_blank" > 65086520 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65298512" target="_blank" > 65298512 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65300277" target="_blank" > 65300277 </a> </td>
+                            <td> Request symbol update </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> swagger-api/swagger-core </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65291397" target="_blank" > 65291397 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/64436476" target="_blank" > 64436476 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65265579" target="_blank" > 65265579 </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/65291418" target="_blank" > 65291418 </a> </td>
+                            <td> Syntax update </td>
+                            <td> true </td>
+                          </tr>
+						  <tr>
+                            <td> swagger-api/swagger-core </td>
+                            <td> "malformedProgram" </td>
+                            <td> <a href="https://github.com/swagger-api/swagger-core/commit/690429d" target="_blank" > 690429d </a> </td>
+                            <td> <a href="https://travis-ci.org/swagger-api/swagger-core/builds/185372812" target="_blank" > 185372812 </a> </td>
+                            <td> <a href="https://github.com/swagger-api/swagger-core/commit/5437741" target="_blank" > 5437741 </a> </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                          </tr>
+                      </tbody>
+                     </table>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            
+        </div>
+        </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
