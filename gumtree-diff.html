@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script>
+        $(function(){
+            $("#includedContent").load("content.html");
+        });
+    </script>
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+		  <div class="container">
+		      <div class="row">
+		          <div class="col-sm-6">
+		              <p>Build and Test Conflicts in The Wild</p>
+		          </div>
+		      </div>
+		  </div>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class="container">
+			<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+		    	<ul class="nav navbar-nav main-navbar-nav">
+		        	<li class="active"><a href="main.html" title="">HOME</a></li>
+		        	<li class="dropdown">
+		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+		            	<ul class="dropdown-menu">
+		                	<li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+		                	<li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+		            	</ul>
+		        	</li>
+		        	<li><a href="sample.html" title="">Sample</a></li>
+		    	</ul>                           
+			</div>        
+			</div>
+		</nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                   <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Using Syntatic Diffs</li>
+                  </ol>                  
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h2> Using Syntatic <i>Diffs</i></h2>
+                  <div class="abstract"> 
+                    
+                  </div>
+				    </div>
+
+          <div class="study">
+            
+            To evaluate the contributions performed by each parent, we generate syntactic diffs to get the difference between the base and the parent commits. For that, we extract the <i>base commit</i> (common ancestor) between the merge parents. Our scripts use gumtree to generate a syntactic diff from each parent and the base gathering all changes performed by each parent (<b>base-parents-diffs</b>, the top diffs illustrated in Figure 1). This diff considers only the changes present in the last commit of each parent. If a previous commit introduces a new file, and a following commit removes it before the final parent commit, such action of file introduction/removal will not be present in the diff. The important issue for us is the set of changes presented in the final commit based on the base commit.
+
+            <p>We also generate syntactic diffs between the parents and the merge commit gathering the changes preserved by each parent (<b>parents-merge-diff</b>, the bottom diffs illustrated in Figure 1).
+            <figure>
+              <img src="img/gumtree-diff.png" alt="Syntatic Diff" width="350" height="275" title="Syntatic Diff">
+              <figcaption>Figure 1 - Study Design.</figcaption>
+            </figure>
+
+
+            <h3>Using syntatic diffs</h3>
+
+            To illustrate how we use syntatic diffs to identify conflicts, consider the Java-driver project presenting an example of build conflict caused by <i>Unavailable Symbol</i> (missing method). Looking at the build log bellow,it is possible to see a reference for a symbol that could not be compiled (<i>cannot find symbol</i>). This message means a symbol becomes unavailable during the merge scenario.
+
+            <div class="conflict">
+              <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                  <span style="color: red;"> COMPILATION FAILURE: </span> <br>
+                  [ERROR] /home/[...]/datastax/driver/osgi/impl/<span style="color: red;">Activator</span>.java:[77,89] <br>
+                  cannot find symbol <br>
+                  [ERROR] symbol: method <span style="color: red;">builderWithHighestTrackableLatencyMillis</span>(int)<br>
+                  [ERROR] location: class com.datastax.driver.core.<span style="color: red;">PerHostPercentileTracker</span> </p>
+            </div>
+
+            Using syntatic diffs, we can extract important informations. An example of a syntatic diff is presented bellow. As can be seen, the Left parent removes the missing method declaration (<i>builderWithHighestTrackableLatencyMillis</i>) from <i>PerHostPercentileTracker</i> class and does not perform any change in the Activator class. On the other hand, Right adds a reference for the missing symbol in <i>Activator</i> class and also does not perform any change in the <i>PerHostPercentileTracker</i> class. Thus, we have an example of interference between parent’s contributions. The change performed by one of the contributors impact the work of the other. 
+
+            <div class="conflict">
+              <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
+                    <span style="color: green;"> //PerHostPercentileTracker.java </span> <br>
+                    <span style="color: green;"> // Diff between Base (4cf58a8) and Left Parent (bc4f313) </span> <br>
+                    Delete SimpleName: builderWithHighestTrackableLatencyMillis(45) <br><br>
+                    
+                    <span style="color: green;"> // Empty diff between Base (4cf58a8) and Right Parent (932e387) </span> <br>
+
+                    <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 140px; width: 500px;"> 
+                    <span style="color: green;"> //Activator.java </span> <br>
+                    <span style="color: green;"> // Empty diff between Base (4cf58a8) and Left Parent (bc4f313) </span> <br> <br>
+                    
+                    <span style="color: green;"> // Diff between Base (4cf58a8) and Right Parent (932e387) </span> <br>
+                    Insert SimpleName: builderWithHighestTrackableLatencyMillis(235) <br>
+                    into MethodInvocation(237) at 1
+            </div>
+
+          </div>
+
+    </main>
+    <footer>
+      <div class="container">
+        <div class="cen">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+      </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
