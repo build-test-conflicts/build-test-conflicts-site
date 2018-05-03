@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build and Test Conflicts in The Wild</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script>
+        $(function(){
+            $("#includedContent").load("content.html");
+        });
+    </script>
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+		  <div class="container">
+		      <div class="row">
+		          <div class="col-sm-6">
+		              <p>Build and Test Conflicts in The Wild</p>
+		          </div>
+		      </div>
+		  </div>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class="container">
+			<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+		    	<ul class="nav navbar-nav main-navbar-nav">
+		        	<li class="active"><a href="main.html" title="">HOME</a></li>
+		        	<li class="dropdown">
+		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Conflicts <span class="caret"></span></a>
+		            	<ul class="dropdown-menu">
+		                	<li><a href="build-conflicts.html" title="">Build Conflicts</a></li>
+		                	<li><a href="test-conflicts.html" title="">Test Conflicts</a></li>
+		            	</ul>
+		        	</li>
+		        	<li><a href="sample.html" title="">Sample</a></li>
+		    	</ul>                           
+			</div>        
+			</div>
+		</nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                   <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">Resolution Patterns of Build Conflicts</li>
+                  </ol>                  
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+                <section class="page col-sm-9">
+                  <h2>Resolution Patterns of Build Conflicts</h2>
+                  <div class="abstract"> 
+                    <p>To check how a build conflict is fixed, our scripts use a syntatic diff for computing the changes between the merge commit of the broken build and its commit fix (<b>merge-fix-diff</b>, see <a href="gumtree-diff.html" title="">here</a> how syntatic diff is generated). Based in the information extracted from Travis log, we analize the involved classes looking for pre-defined resolution patterns. 
+                  </div>
+				    </div>
+
+          <div class="study">
+            <h3>Static Semantic Conflicts</h3>
+           
+            <div class="conflict">
+              <h4> Unavailable Symbol </h4>
+                <p> Our scripts look for the folowing patterns:</p>
+                <ul>
+                  <li> <b>Request symbol removal:</b> in the <i>Main class</i> diff, our scripts look for the removal of the missing symbol: <i>Delete SimpleName: {missing-symbol}</i> </li>
+                  <li> <b>Request symbol Reintroduction:</b> in the <i>Secondary class</i> diff, our scripts look for the addition of the missing symbol in the class using the message pattern: <i>Insert SimpleName: {missing-symbol}</i></li>
+                  <li> <b>Reference update:</b> update of the reference (missing symbol) for the new symbol identifier in the <i>Main class</i> diff using the pattern: <i>Update SimpleName: {missing-symbol} to {new_symbol_name}.</i></li>
+                </ul>
+            </div>
+
+            <div class="conflict">
+						  <h4> Uniplemented Method </h4>
+              <p> Our scripts look for the folowing pattern:</p>
+              <ul>
+                <li><b>Method implementation:</b> in the <i>Main class</i> diff, our scripts look for the pattern: <i>Insert SimpleName: {missing-symbol} into MethodDeclaration</i></li>
+              </ul>
+					  </div>
+
+            <div class="conflict">
+              <h4> Incompatible Method Signature </h4>
+              <p> Our scripts look for the folowing pattern:</p>
+              <ul>
+                <li><b>Request removal:</b> our scripts look in the <i>Main class</i> diff trying to match the following patterns into the diff: <i>Delete SimpleName: {missing-method}</i> </li>
+              </ul>
+            </div>
+
+            <div class="conflict">
+              <h4> Duplicated Declaration </h4>
+              <p> Our scripts look for the folowing pattern:</p>
+              <ul>
+                <li><b>Duplication removal:</b> our scripts try to match the following pattern in the diff of the <i>Main class</i>: <i>Delete SimpleName: {duplicated_declaration}</i></li>
+              </ul>
+            </div>
+
+            <div class="conflict">
+              <h4> Incompatible Types </h4>
+              <p> Like the identification of conflicts of this category, the associated fixes are also done manually. Thus, we look for types changes in the request or in the operation that receives it. Additionally, we also consider the request removal of such operation.
+            </div>
+                  
+        </div>
+        <div class="study">
+            <h3>Other Static Analysis Conflicts</h3>
+            <p>Fixes can be checked looking the guidelines defined for the project. Thus, in our manual analysis we verify whether the set of files not following the project guidelines change their structure to adapt them for the styles conventions defined previously.
+            </div>
+        </div>
+
+    </main>
+    <footer>
+      <div class="container">
+        <div class="cen">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+      </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
