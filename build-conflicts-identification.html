@@ -65,7 +65,7 @@
                 <section class="page col-sm-9">
                   <h2>Checking Build Conflicts</h2>
                   <div class="abstract"> 
-                    <i>Errored</i> builds might have many causes. In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions involving in a merge scenario. We identify two categories of build conflicts: static semantic and other static analysis conflicts. Following, we explain the causes associated to each category. We adopt syntatic diffs to check conflicts (this process is described <a href="gumtree-diff.html" title="">here</a>)
+                    <i>Errored</i> builds might have many causes. In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions involving in a merge scenario. We identify two categories of build conflicts: static semantic and other static analysis conflicts. Following, we explain the causes associated to each category. Our scripts adopt syntatic diffs to check conflicts (this process is described <a href="gumtree-diff.html" title="">here</a>)
                     <p>*Some build process links redirect to GitHub repository commits aiming to hide the authors identity. </p>
                   </div>
 				    </div>
@@ -85,11 +85,11 @@
                   [ERROR] symbol: method <span style="color: red;">builderWithHighestTrackableLatencyMillis</span>(int)<br>
                   [ERROR] location: class com.datastax.driver.core.<span style="color: red;">PerHostPercentileTracker</span> </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in three steps: </p>
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in three steps: </p>
                 <ul>
                   <li> <b>Step 1:</b> Identification of the parent responsible for updating or removing the <i>missing symbol</i> using the <i>Secondary</i> class <b>base-parent-diff</b>;</li>
                   <li> <b>Step 2:</b> Verification of a new reference for the <i>missing symbol</i> in the <i>Main</i> class diff in the other  <b>base-parent-diff</b>;</li>
-                  <li> <b>Step 3:</b> If all these steps are successfully performed, we identify a build conflict.</li>
+                  <li> <b>Step 3:</b> If all these steps are successfully performed, a build conflict is identified.</li>
                 </ul>
             </div>
 
@@ -103,12 +103,12 @@
                   and does not override abstract method <span style="color: red;">executeAsync</span> <br>
                   in com.github.scribejava.core.model.<span style="color: red;">HttpClient</span> </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in four steps: </p>
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in four steps: </p>
                 <ul>
                   <li> <b>Step 1:</b> Identification of the parent responsible for updating or introducing the <i>unimplemented method</i> in the <i>Secondary class</i> <b>base-parent-diff</b>;</li>
-                  <li> <b>Step 2:</b> In the other parent, we perform two checks. The first verifies whether the <i>unimplemented method</i> is added or updated in the <i>Secondary class</i> <b>base-parent-diff</b> (ensuring the change in the <i>Secondary class</i> is preserved in the merge result); </li>
+                  <li> <b>Step 2:</b> In the other parent, our scripts perform two checks. The first verifies whether the <i>unimplemented method</i> is added or updated in the <i>Secondary class</i> <b>base-parent-diff</b> (ensuring the change in the <i>Secondary class</i> is preserved in the merge result); </li>
                   <li> <b>Step 3:</b> The second check is performed on the <i>Main class</i> <b>parent-merge-diff</b> to ensure the <i>unimplemented method</i> is not added/updated in the <i>Main class</i>; </li>
-                  <li> <b>Step 4:</b> If both checks can be done, we conclude a build conflict happens.</li>
+                  <li> <b>Step 4:</b> If both checks can be done, a build conflict happend.</li>
                 </ul>
 					  </div>
 
@@ -122,9 +122,9 @@
                   found for <span style="color: red;">SQLGenerator</span> construct is not applicable <br>
                   (actual and formal argument lists differ in length) </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, we adopt the following approach done in two steps: </p>
+                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in two steps: </p>
                 <ul>
-                  <li> <b>Step 1:</b> Identification of the parent responsible for updating/removing the <i>incompatible method</i> in the <i>Secondary class</i>. Since many methods can have the same name, differing of each other in the signature, we check the number of methods with the name of the <i>incompatible method</i> available in the <i>Secondary class</i> of each parent;</li>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating/removing the <i>incompatible method</i> in the <i>Secondary class</i>. Since many methods can have the same name, differing of each other in the signature, the scripts check the number of methods with the name of the <i>incompatible method</i> available in the <i>Secondary class</i> of each parent;</li>
                   <li> <b>Step 2:</b> If each parent presents a different number of methods or parameter list size, we assume the <i>incompatible method</i> was available before the merge integration. Thus, one of the parents removed the method leading the build to break due to conflicting contribution.</li>
                 </ul>
             </div>
@@ -139,10 +139,10 @@
                   method <span style="color: red;">testRemoveNonExistentVertexCausesException</span>() <br>
                   is already defined in class <span style="color: red;">GraphTestSuite</span> </p>
 
-                <p> To verify if the conflict is caused by the parents contributions or integrator changes, we adopt the following approach done in two steps: </p>
+                <p> To verify if the conflict is caused by the parents contributions or integrator changes, our scripts adopt the following approach done in two steps: </p>
                 <ul>
                   <li> <b>Step 1:</b> Checking of the introduction of the duplicated method in <i>Main class</i> <b>base-parent-diff</b> of both parents;</li>
-                  <li> <b>Step 2:</b> If such check is done, we conclude the build conflict is the responsible for broken build. </li>
+                  <li> <b>Step 2:</b> If such check is done, a build conflict is the responsible for broken build. </li>
                 </ul>
             </div>
 
@@ -155,7 +155,7 @@
                   [ERROR] /home/[...]/neo4j-timetree/[...]/<span style="color: red;">SingleTimeTreeTest</span>.java:[641,32] error: <br>
                   incompatible types <span style="color: red;">long</span> cannot be converted to <span style="color: red;">TimeInstant</span> </p>
 
-                <p> To define the motivator of the conflict, we seek for merge conflicts and changes done after the merge integration. Thus, if none of such actions happen, we assume the contributor changes motivates the conflict. Otherwise, we perform a manual analysis to determine the motivator.
+                <p> To define the motivator of the conflict, our scripts seek for merge conflicts and changes done after the merge integration. Thus, if none of such actions happen, we assume the contributor changes motivates the conflict. Otherwise, we perform a manual analysis to determine the motivator.
             </div>
                   
         </div>

@@ -75,21 +75,21 @@
 			
             <p>To ensure test case failure occurs because of the intersection of parent’s contributions and not by external causes, we decided to individually execute each failed test case again. To evaluate whether the methods and classes exercised during the execution are also changed by the parents commits, we also analyze the coverage of this individual re-execution of the failed test case (using syntactic diffs). If a failed test case exercises source code changed during parent’s contributions, these changes might have a direct impact in the unexpected software behaviour. </p>
 
-            <p>Our scripts analyze the Travis log identifying the failed test case and the associated class. With such information, we use Travis to perform a new build process that is done in two phases: (i) test case execution and (ii) analysis of code coverage and parent’s contributions.</p>
+            <p>Our scripts analyze the Travis log identifying the failed test case and the associated class. With such information, our scripts use Travis to perform a new build process that is done in two phases: (i) test case execution and (ii) analysis of code coverage and parent’s contributions.</p>
 
             <div class="conflict">
               <h4> Test Case Execution </h4>
-              <p> Since for computing code coverage information, one has to change configuration files adding a new dependency for a tool responsible for generating the coverage. Additionally, it is necessary to deploy this information out of Travis environment. So our scripts reset the head of the our fork project to point to the merge commit associated with the failed build and adapt the configuration files to our needs (coverage generation and deployment on GitHub using tags for each commit). After the test case execution, we instrument our scripts to save the coverage associated with each test case in GitHub.
+              <p> Since for computing code coverage information, one has to change configuration files adding a new dependency for a tool responsible for generating the coverage. Additionally, it is necessary to deploy this information out of Travis environment. So our scripts reset the head of the our fork project to point to the merge commit associated with the failed build and adapt the configuration files to our needs (coverage generation and deployment on GitHub using tags for each commit). After the test case execution, our scripts instrument our scripts to save the coverage associated with each test case in GitHub.
             </div>
 
             <div class="conflict">
               <h4> Code Coverage and Parent's Contributions</h4>
-              <p> There are two types of changes we can evaluate about the classes changed by parent’s contributions: class structure or methods. For getting class structure changes, we consider any change done in a class, which can be identified through the original GumTree report. Although GumTree presents all changes performed between two files, it does not associate the changes with their methods. Nevertheless, to perform part of this analysis in this step, our scripts must know the changed methods. To solve this issue, we improve the <a href="https://github.com/build-test-conflicts/gumtree" target="_blank">GumTree tool</a> report by adding the information of related methods into diff reports when it applies.
+              <p> There are two types of changes we can evaluate about the classes changed by parent’s contributions: class structure or methods. For getting class structure changes, the scripts consider any change done in a class, which can be identified through the original GumTree report. Although GumTree presents all changes performed between two files, it does not associate the changes with their methods. Nevertheless, to perform part of this analysis in this step, our scripts must know the changed methods. To solve this issue, we improved the <a href="https://github.com/build-test-conflicts/gumtree" target="_blank">GumTree tool</a> report by adding the information of related methods into diff reports when it applies.
             </div>
 
              <div class="study">
             	<h4>Checking contributions</h4>
-            	<p>Thus, we have information that allow us to verify dependencies between parent's contributions. Based in these information, we analyse the coverage results and the files changes during parent’s contributions looking for two types of dependency, as presented in Figure 1, bellow. Orange and blue circumferences represent the set of changed classes by each parent, while yellow the set of exercised classes by the test case. (A) Intersection among exercised and changed parents classes. (B) Intersection between exercised and changed classes for each parent.</p>
+            	<p>Thus, we have information that allow us to verify dependencies between parent's contributions. Based in these information, our scripts analyse the coverage results and the files changes during parent’s contributions looking for two types of dependency, as presented in Figure 1, bellow. Orange and blue circumferences represent the set of changed classes by each parent, while yellow the set of exercised classes by the test case. (A) Intersection among exercised and changed parents classes. (B) Intersection between exercised and changed classes for each parent.</p>
             	<div class="container">
               	<figure>
                 	<img src="img/test-conflicts-approach.png" alt="Study Design" width="250" height="200" title="Study Design">
@@ -97,7 +97,7 @@
                 </figure>
               </div>
             </div>
-            <p>Additionally, we verify whether changes happen in the failed test cases leading us to consider interferences between changed classes and test cases (new, changed or old test cases).</p>
+            <p>Additionally, our scripts verify whether changes happen in the failed test cases leading us to consider interferences between changed classes and test cases (new, changed or old test cases).</p>
         </div>
 
             

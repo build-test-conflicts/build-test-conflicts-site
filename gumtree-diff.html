@@ -71,9 +71,9 @@
 
           <div class="study">
             
-            To evaluate the contributions performed by each parent, we generate syntactic diffs to get the difference between the base and the parent commits. For that, we extract the <i>base commit</i> (common ancestor) between the merge parents. Our scripts use gumtree to generate a syntactic diff from each parent and the base gathering all changes performed by each parent (<b>base-parents-diffs</b>, the top diffs illustrated in Figure 1). This diff considers only the changes present in the last commit of each parent. If a previous commit introduces a new file, and a following commit removes it before the final parent commit, such action of file introduction/removal will not be present in the diff. The important issue for us is the set of changes presented in the final commit based on the base commit.
+            To evaluate the contributions performed by each parent, ous scripts generate syntactic diffs to get the difference between the base and the parent commits. For that, our scripts extract the <i>base commit</i> (common ancestor) between the merge parents. Our scripts use gumtree to generate a syntactic diff from each parent and the base gathering all changes performed by each parent (<b>base-parents-diffs</b>, the top diffs illustrated in Figure 1). This diff considers only the changes present in the last commit of each parent. If a previous commit introduces a new file, and a following commit removes it before the final parent commit, such action of file introduction/removal will not be present in the diff. The important issue for us is the set of changes presented in the final commit based on the base commit.
 
-            <p>We also generate syntactic diffs between the parents and the merge commit gathering the changes preserved by each parent (<b>parents-merge-diff</b>, the bottom diffs illustrated in Figure 1).
+            <p>Our scripts also generate syntactic diffs between the parents and the merge commit gathering the changes preserved by each parent (<b>parents-merge-diff</b>, the bottom diffs illustrated in Figure 1).
             <figure>
               <img src="img/gumtree-diff.png" alt="Syntatic Diff" width="350" height="275" title="Syntatic Diff">
               <figcaption>Figure 1 - Study Design.</figcaption>
@@ -93,7 +93,7 @@
                   [ERROR] location: class com.datastax.driver.core.<span style="color: red;">PerHostPercentileTracker</span> </p>
             </div>
 
-            Using syntatic diffs, we can extract important informations. An example of a syntatic diff is presented bellow. As can be seen, the Left parent removes the missing method declaration (<i>builderWithHighestTrackableLatencyMillis</i>) from <i>PerHostPercentileTracker</i> class and does not perform any change in the Activator class. On the other hand, Right adds a reference for the missing symbol in <i>Activator</i> class and also does not perform any change in the <i>PerHostPercentileTracker</i> class. Thus, we have an example of interference between parent’s contributions. The change performed by one of the contributors impact the work of the other. 
+            Using syntatic diffs, our scripts can extract important informations. An example of a syntatic diff is presented bellow. As can be seen, the Left parent removes the missing method declaration (<i>builderWithHighestTrackableLatencyMillis</i>) from <i>PerHostPercentileTracker</i> class and does not perform any change in the Activator class. On the other hand, Right adds a reference for the missing symbol in <i>Activator</i> class and also does not perform any change in the <i>PerHostPercentileTracker</i> class. Thus, we have an example of interference between parent’s contributions. The change performed by one of the contributors impact the work of the other. 
 
             <div class="conflict">
               <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
