@@ -65,59 +65,67 @@
                 <section class="page col-sm-9">
                   <h2>Resolution Patterns of Build Conflicts</h2>
                   <div class="abstract"> 
-                    <p>To check how a build conflict is fixed, our scripts use a syntatic diff for computing the changes between the merge commit of the broken build and its commit fix (<b>merge-fix-diff</b>, see <a href="gumtree-diff.html" title="">here</a> how syntatic diff is generated). Based in the information extracted from Travis log, we analize the involved classes looking for pre-defined resolution patterns. 
+                    <p>To check how a Build Conflict is fixed, our scripts use a syntatic diff for computing the changes between the merge commit of the broken build and its commit fix (<b>merge-fix-diff</b>, see <a href="gumtree-diff.html" title="">here</a> how syntatic diff is generated). Based in the information extracted from Travis log (see information extracted <a href="build-conflict-identification.html" title="">here</a>), we analize the involved classes looking for pre-defined resolution patterns. 
                   </div>
 				    </div>
 
-          <div class="study">
+          <div class="row">
             <h3>Static Semantic Conflicts</h3>
            
-            <div class="conflict">
+            <div class="row">
+              <section class="page col-sm-9">
               <h4> Unavailable Symbol </h4>
                 <p> Our scripts look for the folowing patterns:</p>
                 <ul>
-                  <li> <b>Request symbol removal:</b> in the <i>Main class</i> diff, our scripts look for the removal of the missing symbol: <i>Delete SimpleName: {missing-symbol}</i> </li>
+                  <li> <b>Request symbol removal:</b> in the <i>Main class</i> diff, our scripts look for the removal of the missing symbol using the message pattern: <i>Delete SimpleName: {missing-symbol}</i> </li>
                   <li> <b>Request symbol Reintroduction:</b> in the <i>Secondary class</i> diff, our scripts look for the addition of the missing symbol in the class using the message pattern: <i>Insert SimpleName: {missing-symbol}</i></li>
-                  <li> <b>Reference update:</b> update of the reference (missing symbol) for the new symbol identifier in the <i>Main class</i> diff using the pattern: <i>Update SimpleName: {missing-symbol} to {new_symbol_name}.</i></li>
+                  <li> <b>Reference update:</b> update of the reference (missing symbol) for the new symbol identifier in the <i>Main class</i> diff using the message pattern: <i>Update SimpleName: {missing-symbol} to {new_symbol_name}.</i></li>
                 </ul>
             </div>
 
-            <div class="conflict">
+            <div class="row">
+              <section class="page col-sm-9">
 						  <h4> Uniplemented Method </h4>
               <p> Our scripts look for the folowing pattern:</p>
               <ul>
-                <li><b>Method implementation:</b> in the <i>Main class</i> diff, our scripts look for the pattern: <i>Insert SimpleName: {missing-symbol} into MethodDeclaration</i></li>
+                <li><b>Method implementation:</b> in the <i>Main class</i> diff, our scripts look for unimplemented method implementation using the message pattern: <i>Insert SimpleName: {unimplemented-method} into MethodDeclaration</i></li>
               </ul>
 					  </div>
 
-            <div class="conflict">
+            <div class="row">
+              <section class="page col-sm-9">
               <h4> Incompatible Method Signature </h4>
               <p> Our scripts look for the folowing pattern:</p>
               <ul>
-                <li><b>Request removal:</b> our scripts look in the <i>Main class</i> diff trying to match the following patterns into the diff: <i>Delete SimpleName: {missing-method}</i> </li>
+                <li><b>Request removal:</b> our scripts look in the <i>Main class</i> diff trying to verify the removal request for the missing symbol using the message pattern: <i>Delete SimpleName: {missing-method}</i> </li>
               </ul>
             </div>
 
-            <div class="conflict">
+            <div class="row">
+              <section class="page col-sm-9">
               <h4> Duplicated Declaration </h4>
               <p> Our scripts look for the folowing pattern:</p>
               <ul>
-                <li><b>Duplication removal:</b> our scripts try to match the following pattern in the diff of the <i>Main class</i>: <i>Delete SimpleName: {duplicated_declaration}</i></li>
+                <li><b>Duplication removal:</b> our scripts try to verify the removal of one of the Duplicated Declaration looking in the diff of the <i>Main class</i> using the message pattern: <i>Delete SimpleName: {duplicated_declaration}</i></li>
               </ul>
             </div>
-
-            <div class="conflict">
+<!--
+            <div class="row">
+              <section class="page col-sm-9">
               <h4> Incompatible Types </h4>
-              <p> Like the identification of conflicts of this category, the associated fixes are also done manually. Thus, we look for types changes in the request or in the operation that receives it. Additionally, we also consider the request removal of such operation.
+              <p> The associated resolution patterns are done manually. Thus, we look for types changes in the request or in the operation that receives it. Additionally, we also consider the request removal of such operation.
             </div>
-                  
+-->                  
         </div>
-        <div class="study">
+<!--
+        <div class="row">
             <h3>Other Static Analysis Conflicts</h3>
-            <p>Fixes can be checked looking the guidelines defined for the project. Thus, in our manual analysis we verify whether the set of files not following the project guidelines change their structure to adapt them for the styles conventions defined previously.
+            <div class="row">
+            <section class="page col-sm-9">
+              <p>Fixes can be checked looking the guidelines defined for the project. Thus, in our manual analysis we verify whether the set of files not following the project guidelines change their structure to adapt them for the styles conventions defined previously.
             </div>
         </div>
-
+--> 
     </main>
     <footer>
       <div class="container">

@@ -65,18 +65,25 @@
                 <section class="page col-sm-9">
                   <h2>Checking Build Conflicts</h2>
                   <div class="abstract"> 
-                    <i>Errored</i> builds might have many causes. In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions involving in a merge scenario. We identify two categories of build conflicts: static semantic and other static analysis conflicts. Following, we explain the causes associated to each category. Our scripts adopt syntatic diffs to check conflicts (this process is described <a href="gumtree-diff.html" title="">here</a>)
+                    Build conflicts are resulted of <i>Errored</i> builds. Once this kind of builds might have many causes, we filter the merge scenarios that present errored builds but are motivated due to external or remote problems. Thus, we investigate only errored builds caused by errors during the compilation and ASAT phases of the build process.
+                    <p>We identify two categories of conflicts: static semantic and other static analysis. Following, we explain the causes associated to each category. 
+                    <!-- <p>Our scripts adopt syntatic diffs to check conflicts (this process is described <a href="gumtree-diff.html" title="">here</a>) -->
                     <p>*Some build process links redirect to GitHub repository commits aiming to hide the authors identity. </p>
                   </div>
 				    </div>
-
-          <div class="study">
-            <h3>Static Semantic Conflicts</h3>
+          <div class="row">
+            <h3>Checking Conflicting Contributions</h3>
+            <section class="page col-sm-9">
+              In this section, we discuss how we classify <i>errored</i> builds caused by conflicting contributions in a merge scenario. 
+              Thus, after we identify an <i>errored</i> build associated with a merge scenario (without look for the parents commits build status), we check whether the parent contributions are conflicting with each other. To check conflicitng contributions, our scripts adopt syntatic diffs extracting the individual changes of each parent (this process is described <a href="gumtree-diff.html" title="">here</a>)
+            <h4>Static Semantic Conflicts</h4>
+            
             <p> This category of problems is related to source code syntactically correct but semantically wrong.
 					  
-            <div class="conflict">
-              <h4> Unavailable Symbol </h4>
-              <p> Such cause happens when a reference for a symbol no longer available in the project is introduced by one contribution. For example, consider <a href="https://github.com/datastax/java-driver" title="" target="_blank">Java Driver</a> project that presents a build conflict caused by <i>Unavailable Symbol</i> (missing method). Looking at the <a href="https://travis-ci.org/datastax/java-driver/builds/144600040" title="" target="_blank">build process</a> (see log report bellow), it is possible to see a reference for a missing symbol. In this case, the <i>Activator</i> class (main class) requires the use of the missing method <i>builderWithHighestTrackableLatencyMillis</i> provided by the <i>PerHostPercentileTracker</i> class (secondary class).
+            <div class="row">
+              
+              <h4> 1. Unavailable Symbol </h4>
+              <p> Such conflict cause happens when a reference for a symbol no longer available in the project is introduced by one parent, while another parent removes it. For example, consider the <a href="https://github.com/datastax/java-driver" title="" target="_blank">Java Driver</a> project that presents a build conflict caused by <i>Unavailable Symbol</i> (missing method). Looking at the <a href="https://travis-ci.org/datastax/java-driver/builds/144600040" title="" target="_blank">build process</a> (see log report bellow), it is possible to see a reference for a missing symbol. In this case, the <i>Activator</i> class (main class) requires the use of the missing method <i>builderWithHighestTrackableLatencyMillis</i> that should be provided by the <i>PerHostPercentileTracker</i> class (secondary class).
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
@@ -85,17 +92,17 @@
                   [ERROR] symbol: method <span style="color: red;">builderWithHighestTrackableLatencyMillis</span>(int)<br>
                   [ERROR] location: class com.datastax.driver.core.<span style="color: red;">PerHostPercentileTracker</span> </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in three steps: </p>
+                <p> To verify if the errored build is caused by conflicting parent's contributions, our scripts adopt the following approach done in three steps: </p>
                 <ul>
-                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or removing the <i>missing symbol</i> using the <i>Secondary</i> class <b>base-parent-diff</b>;</li>
-                  <li> <b>Step 2:</b> Verification of a new reference for the <i>missing symbol</i> in the <i>Main</i> class diff in the other  <b>base-parent-diff</b>;</li>
-                  <li> <b>Step 3:</b> If all these steps are successfully performed, a build conflict is identified.</li>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or removing the <i>Unavailable Symbol</i> using the <i>Secondary</i> class;</li>
+                  <li> <b>Step 2:</b> Verification for a new reference for the <i>Unavailable Symbol</i> in the <i>Main</i> class (considering the other parent);</li>
+                  <li> <b>Step 3:</b> If the previous steps are successfully checked, we identify a build conflict cause an errored build.</li>
                 </ul>
             </div>
 
-            <div class="conflict">
-						  <h4> Uniplemented Method </h4>
-						  <p> This cause happens when a class does not present an implementation of a method defined in the related interface (or in some cases extends by inheritance). For instance, in <a href="https://github.com/scribejava/scribejava/" title="" target="_blank">Scribe Java</a> project, the <a href="https://github.com/scribejava/scribejava/commit/d4e9733" title="" target="_blank">build process</a> breaks due to the unimplemented method (see log report bellow). In this case, the method <i>executeAsync</i> (unimplemented method) is introduced in the interface <i>HttpClient</i> (secondary class). However, the implementing class, <i>OkHttpHttpClient</i> (main class) does not present the associated new implementation.
+            <div class="row">
+              <h4> 2. Uniplemented Method </h4>
+						  <p> This cause happens when a class does not present an implementation of a method defined in the related interface (or in some cases extends by inheritance). For instance, in <a href="https://github.com/scribejava/scribejava/" title="" target="_blank">Scribe Java</a> project the <a href="https://github.com/scribejava/scribejava/commit/d4e9733" title="" target="_blank">build process</a> breaks due to the unimplemented method (see log report bellow). In this case, the method <i>executeAsync</i> (unimplemented method) is introduced in the interface <i>HttpClient</i> (secondary class). However, the implementing class <i>OkHttpHttpClient</i> (main class) does not present the associated new implementation.
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
@@ -103,18 +110,18 @@
                   and does not override abstract method <span style="color: red;">executeAsync</span> <br>
                   in com.github.scribejava.core.model.<span style="color: red;">HttpClient</span> </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in four steps: </p>
+                <p> To verify if the errored build is caused by conflicting parent's contributions, our scripts adopt the following approach done in four steps: </p>
                 <ul>
-                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or introducing the <i>unimplemented method</i> in the <i>Secondary class</i> <b>base-parent-diff</b>;</li>
-                  <li> <b>Step 2:</b> In the other parent, our scripts perform two checks. The first verifies whether the <i>unimplemented method</i> is added or updated in the <i>Secondary class</i> <b>base-parent-diff</b> (ensuring the change in the <i>Secondary class</i> is preserved in the merge result); </li>
-                  <li> <b>Step 3:</b> The second check is performed on the <i>Main class</i> <b>parent-merge-diff</b> to ensure the <i>unimplemented method</i> is not added/updated in the <i>Main class</i>; </li>
-                  <li> <b>Step 4:</b> If both checks can be done, a build conflict happend.</li>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating or introducing the <i>unimplemented method</i> in the <i>Secondary class</i>;</li>
+                  <li> <b>Step 2:</b> In the other parent, our scripts perform two checks. The first verifies whether the <i>unimplemented method</i> is added or updated in the <i>Secondary class</i> (ensuring the change in the <i>Secondary class</i> is preserved in the merge result); </li>
+                  <li> <b>Step 3:</b> Following, our scripts whether the <i>Main class</i> does not present any change related to the addition/update of the <i>unimplemented method</i>; </li>
+                  <li> <b>Step 4:</b> If these checks can be done, a build conflict happend and cause an errored build.</li>
                 </ul>
 					  </div>
 
-            <div class="conflict">
-              <h4> Incompatible Method Signature </h4>
-              <p> TDifferent of Unavailable Symbol Method, in this case the required method is available but the list of parameters or the types expected are different of the received. For instance, in <a href="https://github.com/ontop/ontop" title="" target="_blank"> Ontop </a> project, the <a href="https://travis-ci.org/ontop/ontop/builds/113479426" title="" target="_blank"> build process </a> breaks because the constructor (<i>incompatible method</i>) of <i>Quest (secondary class)</i> could not be used in the request of <i>SQLGenerator (main class)</i> since the parameters list differ in length see log report bellow.
+            <div class="row">
+              <h4> 3. Incompatible Method Signature </h4>
+              <p> Different of Unavailable Symbol Method, in this case the required method is available but the list of parameters or the types expected are different of those received. For instance, in <a href="https://github.com/ontop/ontop" title="" target="_blank"> Ontop </a> project, the <a href="https://travis-ci.org/ontop/ontop/builds/113479426" title="" target="_blank"> build process </a> breaks because the constructor (<i>incompatible method</i>) of <i>Quest (secondary class)</i> could not be used in the request of <i>SQLGenerator (main class)</i> since the parameters list differ in length, see log report bellow.
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
@@ -122,16 +129,16 @@
                   found for <span style="color: red;">SQLGenerator</span> construct is not applicable <br>
                   (actual and formal argument lists differ in length) </p>
 
-                <p> To verify if the conflict is caused by the parent’s contributions or integrator changes, our scripts adopt the following approach done in two steps: </p>
+                <p> To verify if the errored build is caused by conflicting parent's contributions, our scripts adopt the following approach done in two steps: </p>
                 <ul>
-                  <li> <b>Step 1:</b> Identification of the parent responsible for updating/removing the <i>incompatible method</i> in the <i>Secondary class</i>. Since many methods can have the same name, differing of each other in the signature, the scripts check the number of methods with the name of the <i>incompatible method</i> available in the <i>Secondary class</i> of each parent;</li>
+                  <li> <b>Step 1:</b> Identification of the parent responsible for updating/removing the <i>incompatible method</i> in the <i>Secondary class</i>. Since many methods can have the same name, differing with each other in the method signature, the scripts check the number of methods with the name of the <i>incompatible method</i> available in the <i>Secondary class</i> of each parent;</li>
                   <li> <b>Step 2:</b> If each parent presents a different number of methods or parameter list size, we assume the <i>incompatible method</i> was available before the merge integration. Thus, one of the parents removed the method leading the build to break due to conflicting contribution.</li>
                 </ul>
             </div>
 
-            <div class="conflict">
-              <h4> Duplicated Declaration </h4>
-              <p> Different of <i>Incompatible Methods Signature</i>, in this case, two elements with the same identifier are declared in a class (variables, methods). Thus, when a requestion is done for such element, the program cannot decide which one to use. <a href="https://github.com/tinkerpop/blueprints" title="" target="_blank">Blueprints</a> project has a <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" title="" target="_blank"> build process </a>that breaks because of two declarations of method <i>testRemoveNonExistentVertexCausesException (duplicated method)</i> in the <i>GraphTestSuite (main class)</i>.
+            <div class="row">
+              <h4> 4. Duplicated Declaration </h4>
+              <p> Different of <i>Incompatible Methods Signature</i>, in this case two elements with the same identifier are declared in a class (variable, method). Thus, when a requestion is done for such element, the program can not decide which one to use. <a href="https://github.com/tinkerpop/blueprints" title="" target="_blank">Blueprints</a> project has a <a href="https://github.com/tinkerpop/blueprints/commit/5a25e3a" title="" target="_blank"> build process </a>that breaks because of two declarations of method <i>testRemoveNonExistentVertexCausesException (duplicated method)</i> in the <i>GraphTestSuite (main class)</i>.
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
@@ -139,31 +146,35 @@
                   method <span style="color: red;">testRemoveNonExistentVertexCausesException</span>() <br>
                   is already defined in class <span style="color: red;">GraphTestSuite</span> </p>
 
-                <p> To verify if the conflict is caused by the parents contributions or integrator changes, our scripts adopt the following approach done in two steps: </p>
+                <p> To verify if the errored build is caused by conflicting parent's contributions, our scripts adopt the following approach done in two steps: </p>
                 <ul>
-                  <li> <b>Step 1:</b> Checking of the introduction of the duplicated method in <i>Main class</i> <b>base-parent-diff</b> of both parents;</li>
-                  <li> <b>Step 2:</b> If such check is done, a build conflict is the responsible for broken build. </li>
+                  <li> <b>Step 1:</b> Checking for the introduction of the duplicated method in <i>Main class</i> in both parents;</li>
+                  <li> <b>Step 2:</b> If such check is done, a build conflict is the responsible for the errored build. </li>
                 </ul>
             </div>
 
-            <div class="conflict">
-              <h4> Incompatible Types </h4>
-              <p> This problem happens when an unexpected type is received or sent at an operation. For example, in <a href="https://github.com/graphaware/neo4j-timetree" title="" target="_blank">Neo4J TimeTree</a> project, the <a href="https://github.com/graphaware/neo4j-timetree/commit/66d2770" title="" target="_blank">build process</a> fails because of a parameter of type <i>long</i> is sent instead of <i>TimeInstant</i> in <i>getInstant</i> method of <i>TimeTree</i> class (see log report bellow). 
+            <div class="row">
+              <h4> 5. Incompatible Types </h4>
+              <p> This problem happens when an unexpected type is received or sent in a request. For example, in <a href="https://github.com/graphaware/neo4j-timetree" title="" target="_blank">Neo4J TimeTree</a> project, the <a href="https://github.com/graphaware/neo4j-timetree/commit/66d2770" title="" target="_blank">build process</a> fails because a parameter of type <i>long</i> is sent instead of <i>TimeInstant</i> in <i>getInstant</i> method of <i>TimeTree</i> class (see log report bellow). 
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
                   <span style="color: red;"> COMPILATION FAILURE: </span> <br>
                   [ERROR] /home/[...]/neo4j-timetree/[...]/<span style="color: red;">SingleTimeTreeTest</span>.java:[641,32] error: <br>
                   incompatible types <span style="color: red;">long</span> cannot be converted to <span style="color: red;">TimeInstant</span> </p>
 
-                <p> To define the motivator of the conflict, our scripts seek for merge conflicts and changes done after the merge integration. Thus, if none of such actions happen, we assume the contributor changes motivates the conflict. Otherwise, we perform a manual analysis to determine the motivator.
+                <p> To verify whether a build conflict is responsible for the broken build, in cases one of the parent commits has errored build status, we perform a manual analysis to verify the conflict occurrence. This manual analysis follows the ideas implemented for the other erros and also using <a href="gumtree-diff.html" title="">GumTree</a> diffs.
             </div>
                   
         </div>
-        <div class="study">
+        <div class="row">
             <h3>Other Static Analysis Conflicts</h3>
-            <p>Static analysis are done after the compilation process. It means the source code is compilable, but additional analysis after the compilation problems may fail leading the build process to break. The common analysis done involve checking of styles/convetions of the projects, duplication of code. </p>
-            <div class="conflict">
-              <h4> Project Rules </h4>
+            <section class="page col-sm-9">
+            <p>Static analysis are done after the compilation process. 
+            It means the source code is compilable, but additional analysis after the compilation phase identify problems that lead the build process to break. 
+            The common analysis done involves checking of styles/convetions adopted by projects, duplication of code. </p>
+            
+            <div class="row">
+              <h4> 1. Project Rules </h4>
               <p> This problem happens when the source code is syntactically and semantically correct, but it does not follow the conventions/guidelines defined to the project. For instance, in the <a href="https://github.com/datastax/java-driver" title="" target="_blank">Java Driver</a> project, a file does not have the <i>expected license header</i> resulting in a broken <a href="https://github.com/datastax/java-driver/commit/f19c84b" title="" target="_blank">build process</a> (see log report bellow). 
 
                 <p style="border:3px; border-style:solid; border-color:#blue; padding: 1em; height: 120px; width: 500px;"> 
@@ -171,10 +182,20 @@
                   [ERROR] Failed to execute goal com.mycila:license-maven-plugin:2.8:check (check-license) <br>
                   Some files do not have the <span style="color: red;">expected license header</span> </p>
 
-                <p> Like the approach adopted for incompatible types, if none merge conflicts or changes after the merge integration happens, we consider such case is motivated by the contributor changes. Otherwise, we perform a manual analysis to confirm the conflict.
+                <p> Like the approach adopted for incompatible types, in case one of the parents has errored build status, we perform a manual analysis to confirm the build conflict occurrence.
             </div>
         </div>
-
+        <div class="row">
+            <h3>Superior Parents Status without Changes after Merge Scenario</h3>
+            <section class="page col-sm-9">
+              In case our scripts can not verify conflicting contributions of parents commits, we perform an additional analysis. Just like the previous approach to verify conflicting contributions, after we identify a merge scenario associated with an errored build, we perform the following two checks:
+              <ul>
+                <li>First, we check whether the parents commits are associated to build process with status superior to errored (in this case, <i>failed</i> or <i>passed</i>). This property tells us that before the merge scenario, the parents commits did not present any problem during the compilation and ASAT phases of the build process. 
+                <li>Following, we verify whether changes are performed after the merge scenario simulating the merge scenario. If no change is performed, we conclude the parent contributions are conflicting leading the build process to break due to build conflicts.</li>
+              </ul> 
+            </section> 
+          </div> 
+          
     </main>
     <footer>
       <div class="container">
