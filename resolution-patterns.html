@@ -53,7 +53,7 @@
               <div class="col-sm-12">
                    <ol class="breadcrumb">
                       <li><a href="main.html">Home</a></li>
-                      <li class="active">Resolution Patterns</li>
+                      <li class="active">Identifying Fix Commit</li>
                   </ol>                  
               </div>
           </div>
@@ -63,13 +63,12 @@
         <div class="container">
             <div class="row">
                 <section class="page col-sm-9">
-                  <h2>Resolution Patterns</h2>
+                  <h2>Identifying Fix Commit</h2>
                   
 				    </div>
 
           <div class="row">
             <section class="page col-sm-9">
-            <h3>Fix Commit</h3>
             <p> To identify the resolution patterns adopted for conflict fixes, and who is responsible for applying the fixes, we look for fix commits. As a fix, we consider a commit that is associated with a superior build status and follows a merge commit associated with a broken build. In this way, a commit fix has as its parent the merge commit. Nevertheless, a commit fix may be a merge scenario (the fix commit has two parents, and one of them is the merge commit). </p>
 
             <p>Since we have the commit fix, we check its build status. If the fix does not present a build on Travis, we create a new build on Travis through our project fork. We do this process until we identify a fix commit with a build status that reflects a fix. For build conflicts, we consider as a valid build status <i>failed</i> or <i>passed</i> status. For test conflicts, we consider only the <i>passed</i> status as a valid one. Once we identify the commit fix, we extract the person responsible for the fix using Git API. For that, we extract the name of the author commits (merge parents and fix commits) and check whether they are the same person. 
