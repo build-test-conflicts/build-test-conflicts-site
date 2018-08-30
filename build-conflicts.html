@@ -42,6 +42,7 @@
       </div>
     </nav>
     </header>
+    <script type="text/javascript" src="exportCVS.js" ></script>
     <div class="bread_area">
       <div class="container">
           <div class="row">
@@ -60,7 +61,7 @@
                 <section class="page col-sm-11">
                   <h3>Build Conflict Cases</h3>
                   <div class="abstract"> 
-                    We present here the <i>Build Conflicts,</i>  we identify in our study.
+                    We present here the <i>Build Conflicts,</i>  we identify in our study. <button onclick="exportTableToCSV('build-conflicts.csv')">Export Build Conflicts To CSV File</button>
                     <p> <a href="problems-integrator-comp.html" title="">Here</a> you can check broken builds due to compilation problems caused by integrators.
                     
                     <div class="alert alert-warning">
@@ -73,7 +74,7 @@
             </div>
             <div class="row">
                 <section class="page col-sm-9">
-                  
+                    
                     <table class="build_conflicts">
                       <thead>
                         <tr>

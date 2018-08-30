@@ -252,3 +252,11 @@ ul.big li:nth-child(2n) {margin-left: 2%;}
     .fbox {float: left;}
     .fbox:nth-child(3) {float: right !important;}
 }
+
+a:hover, a:active {
+    background-color: #B5F5F0;
+}
+
+a {
+    color: #545DCD;
+}

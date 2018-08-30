@@ -41,13 +41,14 @@
       </div>
     </nav>
     </header>
+    <script type="text/javascript" src="exportCVS.js" ></script>
     <div class="bread_area">
       <div class="container">
           <div class="row">
               <div class="col-sm-12">
                   <ol class="breadcrumb">
                       <li><a href="main.html">Home</a></li>
-                      <li class="active">Broken Builds by Integrator</li>
+                      <li class="active">Broken Builds Caused by Post Integration Changes</li>
                   </ol>                    
               </div>
           </div>
@@ -60,10 +61,11 @@
                   <h3>Broken Builds Caused by Post Integration Changes</h3>
                   <div class="abstract"> 
                     We present here the <i>Broken Builds</i> caused by post integration changes performed after the merge scenario by the integrator, we identify in our study. 
+                    <p><button onclick="exportTableToCSV('broken-builds-post-integration-changes.csv')">Export Broken Builds by Port Integration Changes To CSV File</button>
                     <p> <a href="build-conflicts.html" title="">Here</a> you can check Build Conflicts due to compilation problems.
 
                     <div class="alert alert-warning">
-                      <strong>Warning!</strong> Please, scroll the page to see all conflicts.
+                      <strong>Warning!</strong> Please, scroll the page to see all broken builds.
                     </div>
                     <div class="alert alert-danger">
                       Some <strong>build process links</strong> redirect to GitHub repository commits aiming to hide the authors identity.

@@ -42,6 +42,7 @@
       </div>
     </nav>
     </header>
+    <script type="text/javascript" src="exportCVS.js" ></script>
     <div class="bread_area">
       <div class="container">
           <div class="row">
@@ -60,7 +61,11 @@
                 <section class="page col-sm-9">
                   <h3>Sample</h3>
                   <div class="abstract"> 
-                    We present here the set of projects we consider to run our study.
+                    We present here the set of projects we consider to run our study. <button onclick="exportTableToCSV('sample.csv')">Export Sample To CSV File</button>
+                    <p></p>
+                    <div class="alert alert-warning">
+                      <strong>Warning!</strong> Please, scroll the page to see all projects.
+                    </div>
                   </div>
             </div>
             <div class="row">
